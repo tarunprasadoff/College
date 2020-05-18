@@ -1,0 +1,830 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     32239,        822]
+NotebookOptionsPosition[     30828,        772]
+NotebookOutlinePosition[     31200,        788]
+CellTagsIndexPosition[     31157,        785]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"ArcSin", "[", "0.39433756729", "]"}], "*", "180"}], ")"}], "/", 
+  "\[Pi]"}]], "Input",
+ CellChangeTimes->{{3.747645840201971*^9, 3.7476458918807898`*^9}}],
+
+Cell[BoxData["23.224666235375217`"], "Output",
+ CellChangeTimes->{3.7476458963331823`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ NamespaceBox["WolframAlphaQueryParseResults",
+  DynamicModuleBox[{Typeset`q$$ = "Solve (1 - Cos[(x`*\[Pi])/180])*60 = 50", 
+   Typeset`newq$$ = "Solve (1 - Cos[(x`*\[Pi])/180])*60 = 50", 
+   Typeset`chosen$$ = "(1 - Cos[(Derivative[1][x]*Pi)/180])*60 == 50", 
+   Typeset`open$$ = False}, 
+   PaneSelectorBox[{False->
+    DynamicModuleBox[{WolframAlphaClient`Private`show$$ = False, 
+     WolframAlphaClient`Private`assumptionsQ$$ = True}, 
+     TagBox[
+      FrameBox[
+       TagBox[GridBox[{
+          {
+           InputFieldBox[Dynamic[Typeset`newq$$], String,
+            Appearance->None,
+            BaseStyle->{"CalculateInput"},
+            ContinuousAction->True,
+            Enabled->True,
+            FieldSize->{{1, 40}, {1, 
+               DirectedInfinity[1]}},
+            TrapSelection->False], 
+           ButtonBox[
+            TagBox[
+             TooltipBox[
+              StyleBox["\<\"\[RightGuillemet]\"\>",
+               StripOnInput->False,
+               LineColor->RGBColor[1, 0.5, 0],
+               FrontFaceColor->RGBColor[1, 0.5, 0],
+               BackFaceColor->RGBColor[1, 0.5, 0],
+               GraphicsColor->RGBColor[1, 0.5, 0],
+               FontColor->RGBColor[1, 0.5, 0]],
+              DynamicBox[
+               ToBoxes[
+                FEPrivate`FrontEndResource[
+                "WAStrings", "InterpretationAssumptions"], StandardForm]]],
+             Annotation[#, 
+              Dynamic[
+               FEPrivate`FrontEndResource[
+               "WAStrings", "InterpretationAssumptions"]], "Tooltip"]& ],
+            Appearance->None,
+            BaselinePosition->Baseline,
+            ButtonFunction:>(Quiet[
+               WolframAlpha[]]; Typeset`open$$ = True; 
+             WolframAlphaClient`Private`extrudeFromFastParse[
+              "Solve (1 - Cos[(x`*\[Pi])/180])*60 = 50", 
+               Defer[(1 - Cos[(Derivative[1][Global`x] Pi)/180]) 60 == 50], 
+               "Fast parse"]; Typeset`open$$ = False),
+            ContentPadding->False,
+            Evaluator->Automatic,
+            Method->"Queued"], 
+           ItemBox[
+            ButtonBox[
+             PaneSelectorBox[{True->
+              TagBox[
+               TooltipBox[
+                
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "WABitmaps", "OrangeSquarePlus"],
+                 ImageSizeCache->{15., {4., 13.}}],
+                DynamicBox[
+                 ToBoxes[
+                  FEPrivate`FrontEndResource["WAStrings", "ShowAllResults"], 
+                  StandardForm]]],
+               Annotation[#, 
+                Dynamic[
+                 FEPrivate`FrontEndResource["WAStrings", "ShowAllResults"]], 
+                "Tooltip"]& ], False->
+              TagBox[
+               TooltipBox[
+                
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "WABitmaps", "GraySquarePlus"],
+                 ImageSizeCache->{15., {4., 13.}}],
+                DynamicBox[
+                 ToBoxes[
+                  FEPrivate`FrontEndResource["WAStrings", "ShowAllResults"], 
+                  StandardForm]]],
+               Annotation[#, 
+                Dynamic[
+                 FEPrivate`FrontEndResource["WAStrings", "ShowAllResults"]], 
+                "Tooltip"]& ]}, Dynamic[WolframAlphaClient`Private`show$$],
+              ImageSize->All],
+             Appearance->None,
+             ButtonFunction:>(Quiet[
+                WolframAlpha[]]; If[
+                Or[
+                 CurrentValue["OptionKey"], 
+                 CurrentValue["AltKey"]], SelectionMove[
+                  ButtonNotebook[], All, ButtonCell, AutoScroll -> False]; 
+                NotebookWrite[
+                  ButtonNotebook[], 
+                  Cell[
+                  Typeset`newq$$, "WolframAlphaShort", FormatType -> 
+                   "TextForm"], All], Typeset`open$$ = True; 
+                WolframAlphaClient`Private`extrudeFromFastParse[
+                 "Solve (1 - Cos[(x`*\[Pi])/180])*60 = 50", 
+                  Defer[(1 - Cos[(Derivative[1][Global`x] Pi)/180]) 60 == 50],
+                   "Fast parse"]; Typeset`open$$ = False]),
+             Evaluator->Automatic,
+             Method->"Queued"],
+            Alignment->{Right, Top},
+            StripOnInput->False]},
+          {
+           PaneBox[
+            TagBox[
+             TooltipBox[
+              ButtonBox[
+               PaneSelectorBox[{False->
+                StyleBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"1", " ", "-", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Derivative", "[", "1", "]"}], "[", "x", "]"}], 
+                    "*", "Pi"}], ")"}], "/", "180"}], "]"}]}], ")"}], "*", 
+                   "60"}], " ", "==", " ", "50"}],
+                 StripOnInput->False,
+                 NumberMarks->False], True->
+                StyleBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"1", " ", "-", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Derivative", "[", "1", "]"}], "[", "x", "]"}], 
+                    "*", "Pi"}], ")"}], "/", "180"}], "]"}]}], ")"}], "*", 
+                   "60"}], " ", "==", " ", "50"}],
+                 StripOnInput->False,
+                 ShowSyntaxStyles->False,
+                 NumberMarks->False,
+                 FontColor->RGBColor[1, 0.5, 0]]}, Dynamic[
+                 CurrentValue["MouseOver"]],
+                BaseStyle->{ShowStringCharacters -> True},
+                FrameMargins->0,
+                ImageSize->Automatic],
+               Alignment->Left,
+               Appearance->None,
+               BaseStyle->{},
+               ButtonFunction:>(SelectionMove[
+                  ButtonNotebook[], All, ButtonCell]; NotebookWrite[
+                  ButtonNotebook[], 
+                  Cell[
+                   BoxData[
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", " ", "-", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Derivative", "[", "1", "]"}], "[", "x", "]"}], 
+                    "*", "Pi"}], ")"}], "/", "180"}], "]"}]}], ")"}], "*", 
+                    "60"}], " ", "==", " ", "50"}]], "Input"], All]; 
+                SelectionMove[
+                  ButtonNotebook[], After, CellContents]),
+               Evaluator->Automatic,
+               ImageSize->Automatic,
+               Method->"Preemptive"],
+              DynamicBox[
+               ToBoxes[
+                FEPrivate`FrontEndResource["WAStrings", "RemoveResults"], 
+                StandardForm]]],
+             Annotation[#, 
+              Dynamic[
+               FEPrivate`FrontEndResource["WAStrings", "RemoveResults"]], 
+              "Tooltip"]& ],
+            AppearanceElements->{},
+            BaseStyle->{ShowStringCharacters -> True, ScriptLevel -> 0},
+            ImageSize->{Automatic, {1, 100}},
+            Scrollbars->{False, Automatic}], "\[SpanFromLeft]", 
+           "\[SpanFromLeft]"}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         FrameStyle->GrayLevel[0.85],
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxDividers->{
+          "Columns" -> {{False}}, "Rows" -> {False, {True}, False}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+        "Grid"],
+       Alignment->Top,
+       Background->Dynamic[
+         FEPrivate`If[
+          FEPrivate`And[
+           FEPrivate`SameQ[
+            FEPrivate`Head[Typeset`newq$$], String], 
+           FEPrivate`UnsameQ[Typeset`q$$, Typeset`newq$$]], 
+          RGBColor[1., 0.975, 0.95], 
+          GrayLevel[1]]],
+       BaselinePosition->Baseline,
+       FrameStyle->GrayLevel[0.85],
+       ImageSize->Automatic,
+       RoundingRadius->5,
+       StripOnInput->False],
+      EventHandlerTag[{
+       "MouseEntered" :> 
+        FEPrivate`Set[WolframAlphaClient`Private`show$$, True], "MouseExited" :> 
+        FEPrivate`Set[WolframAlphaClient`Private`show$$, False], Method -> 
+        "Preemptive", PassEventsDown -> Automatic, PassEventsUp -> True}]],
+     DynamicModuleValues:>{}], True->
+    TagBox[GridBox[{
+       {
+        DynamicModuleBox[{WolframAlphaClient`Private`show$$ = False, 
+         WolframAlphaClient`Private`assumptionsQ$$ = True}, 
+         TagBox[
+          FrameBox[
+           TagBox[GridBox[{
+              {
+               InputFieldBox[Dynamic[Typeset`newq$$], String,
+                Appearance->None,
+                BaseStyle->{"CalculateInput"},
+                ContinuousAction->True,
+                Enabled->True,
+                FieldSize->{{1, 40}, {1, 
+                   DirectedInfinity[1]}},
+                TrapSelection->False], 
+               ButtonBox[
+                TagBox[
+                 TooltipBox[
+                  StyleBox["\<\"\[RightGuillemet]\"\>",
+                   StripOnInput->False,
+                   LineColor->RGBColor[1, 0.5, 0],
+                   FrontFaceColor->RGBColor[1, 0.5, 0],
+                   BackFaceColor->RGBColor[1, 0.5, 0],
+                   GraphicsColor->RGBColor[1, 0.5, 0],
+                   FontColor->RGBColor[1, 0.5, 0]],
+                  DynamicBox[
+                   ToBoxes[
+                    FEPrivate`FrontEndResource[
+                    "WAStrings", "InterpretationAssumptions"], StandardForm]]],
+                 Annotation[#, 
+                  Dynamic[
+                   FEPrivate`FrontEndResource[
+                   "WAStrings", "InterpretationAssumptions"]], "Tooltip"]& ],
+                Appearance->None,
+                BaselinePosition->Baseline,
+                ButtonFunction:>(Quiet[
+                   WolframAlpha[]]; Typeset`open$$ = True; 
+                 WolframAlphaClient`Private`extrudeFromFastParse[
+                  "Solve (1 - Cos[(x`*\[Pi])/180])*60 = 50", 
+                   
+                   Defer[(1 - Cos[(Derivative[1][Global`x] Pi)/180]) 60 == 
+                    50], "Fast parse"]; Typeset`open$$ = False),
+                ContentPadding->False,
+                Evaluator->Automatic,
+                Method->"Queued"], 
+               ItemBox[
+                ButtonBox[
+                 PaneSelectorBox[{True->
+                  TagBox[
+                   TooltipBox[
+                    
+                    DynamicBox[FEPrivate`FrontEndResource[
+                    "WABitmaps", "OrangeSquarePlus"]],
+                    DynamicBox[
+                    ToBoxes[
+                    FEPrivate`FrontEndResource["WAStrings", "ShowAllResults"],
+                     StandardForm]]],
+                   Annotation[#, 
+                    Dynamic[
+                    FEPrivate`FrontEndResource[
+                    "WAStrings", "ShowAllResults"]], "Tooltip"]& ], False->
+                  TagBox[
+                   TooltipBox[
+                    
+                    DynamicBox[FEPrivate`FrontEndResource[
+                    "WABitmaps", "GraySquarePlus"]],
+                    DynamicBox[
+                    ToBoxes[
+                    FEPrivate`FrontEndResource["WAStrings", "ShowAllResults"],
+                     StandardForm]]],
+                   Annotation[#, 
+                    Dynamic[
+                    FEPrivate`FrontEndResource[
+                    "WAStrings", "ShowAllResults"]], "Tooltip"]& ]}, Dynamic[
+                  WolframAlphaClient`Private`show$$],
+                  ImageSize->All],
+                 Appearance->None,
+                 ButtonFunction:>(Quiet[
+                    WolframAlpha[]]; If[
+                    Or[
+                    CurrentValue["OptionKey"], 
+                    CurrentValue["AltKey"]], SelectionMove[
+                    ButtonNotebook[], All, ButtonCell, AutoScroll -> False]; 
+                    NotebookWrite[
+                    ButtonNotebook[], 
+                    Cell[
+                    Typeset`newq$$, "WolframAlphaShort", FormatType -> 
+                    "TextForm"], All], Typeset`open$$ = True; 
+                    WolframAlphaClient`Private`extrudeFromFastParse[
+                    "Solve (1 - Cos[(x`*\[Pi])/180])*60 = 50", 
+                    
+                    Defer[(1 - Cos[(Derivative[1][Global`x] Pi)/180]) 60 == 
+                    50], "Fast parse"]; Typeset`open$$ = False]),
+                 Evaluator->Automatic,
+                 Method->"Queued"],
+                Alignment->{Right, Top},
+                StripOnInput->False]},
+              {
+               PaneBox[
+                TagBox[
+                 TooltipBox[
+                  ButtonBox[
+                   PaneSelectorBox[{False->
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", " ", "-", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Derivative", "[", "1", "]"}], "[", "x", "]"}], 
+                    "*", "Pi"}], ")"}], "/", "180"}], "]"}]}], ")"}], "*", 
+                    "60"}], " ", "==", " ", "50"}],
+                    StripOnInput->False,
+                    NumberMarks->False], True->
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", " ", "-", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Derivative", "[", "1", "]"}], "[", "x", "]"}], 
+                    "*", "Pi"}], ")"}], "/", "180"}], "]"}]}], ")"}], "*", 
+                    "60"}], " ", "==", " ", "50"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    NumberMarks->False,
+                    FontColor->RGBColor[1, 0.5, 0]]}, Dynamic[
+                    CurrentValue["MouseOver"]],
+                    BaseStyle->{ShowStringCharacters -> True},
+                    FrameMargins->0,
+                    ImageSize->Automatic],
+                   Alignment->Left,
+                   Appearance->None,
+                   BaseStyle->{},
+                   ButtonFunction:>(SelectionMove[
+                    ButtonNotebook[], All, ButtonCell]; NotebookWrite[
+                    ButtonNotebook[], 
+                    Cell[
+                    BoxData[
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", " ", "-", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Derivative", "[", "1", "]"}], "[", "x", "]"}], 
+                    "*", "Pi"}], ")"}], "/", "180"}], "]"}]}], ")"}], "*", 
+                    "60"}], " ", "==", " ", "50"}]], "Input"], All]; 
+                    SelectionMove[
+                    ButtonNotebook[], After, CellContents]),
+                   Evaluator->Automatic,
+                   ImageSize->Automatic,
+                   Method->"Preemptive"],
+                  DynamicBox[
+                   ToBoxes[
+                    FEPrivate`FrontEndResource["WAStrings", "RemoveResults"], 
+                    StandardForm]]],
+                 Annotation[#, 
+                  Dynamic[
+                   FEPrivate`FrontEndResource["WAStrings", "RemoveResults"]], 
+                  "Tooltip"]& ],
+                AppearanceElements->{},
+                BaseStyle->{ShowStringCharacters -> True, ScriptLevel -> 0},
+                ImageSize->{Automatic, {1, 100}},
+                Scrollbars->{False, Automatic}], "\[SpanFromLeft]", 
+               "\[SpanFromLeft]"}
+             },
+             AutoDelete->False,
+             BaselinePosition->{1, 1},
+             FrameStyle->GrayLevel[0.85],
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxDividers->{
+              "Columns" -> {{False}}, "Rows" -> {False, {True}, False}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            "Grid"],
+           Alignment->Top,
+           Background->Dynamic[
+             FEPrivate`If[
+              FEPrivate`And[
+               FEPrivate`SameQ[
+                FEPrivate`Head[Typeset`newq$$], String], 
+               FEPrivate`UnsameQ[Typeset`q$$, Typeset`newq$$]], 
+              RGBColor[1., 0.975, 0.95], 
+              GrayLevel[1]]],
+           BaselinePosition->Baseline,
+           FrameStyle->GrayLevel[0.85],
+           ImageSize->Automatic,
+           RoundingRadius->5,
+           StripOnInput->False],
+          
+          EventHandlerTag[{
+           "MouseEntered" :> 
+            FEPrivate`Set[WolframAlphaClient`Private`show$$, True], 
+            "MouseExited" :> 
+            FEPrivate`Set[WolframAlphaClient`Private`show$$, False], Method -> 
+            "Preemptive", PassEventsDown -> Automatic, PassEventsUp -> True}]],
+         DynamicModuleValues:>{}]},
+       {
+        InterpretationBox[
+         StyleBox[
+          
+          DynamicBox[FEPrivate`FrontEndResource[
+           "FEExpressions", "NecklaceAnimator"][20]],
+          AnimatorBoxOptions->{ImageSize->20}],
+         Animator[Appearance -> "Necklace", ImageSize -> 20],
+         BaseStyle->{"Deploy"}]}
+      },
+      BaselinePosition->{1, 1},
+      DefaultBaseStyle->"Column",
+      GridBoxAlignment->{"Columns" -> {{Left}}},
+      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+     "Column"]}, Dynamic[
+     TrueQ[Typeset`open$$]],
+    BaseStyle->{Deployed -> True},
+    ImageSize->Automatic],
+   DynamicModuleValues:>{}],
+  BaseStyle->{Deployed -> True},
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "WolframAlphaShortInput"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"60", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", 
+     RowBox[{"Cos", "[", 
+      FractionBox[
+       RowBox[{"\[Pi]", " ", 
+        SuperscriptBox["x", "\[Prime]",
+         MultilineFunction->None]}], "180"], "]"}]}], ")"}]}], "\[Equal]", 
+  "50"}]], "Output",
+ CellChangeTimes->{
+  3.747646050212695*^9, {3.7476460816826315`*^9, 3.7476460958569555`*^9}, 
+   3.7476483710502625`*^9, {3.7476484039945965`*^9, 3.7476484177628293`*^9}, 
+   3.747648456066318*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "WolframAlphaShortInput",
+ CellChangeTimes->{3.747648609099019*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ArcCos", "[", 
+   RowBox[{"1", "/", "6"}], "]"}], "*", 
+  RowBox[{"(", 
+   RowBox[{"180", "/", "\[Pi]"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.7476486136318884`*^9, 3.747648621778097*^9}, {
+  3.7476486639135265`*^9, 3.7476486917101464`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"180", " ", 
+   RowBox[{"ArcCos", "[", 
+    FractionBox["1", "6"], "]"}]}], "\[Pi]"]], "Output",
+ CellChangeTimes->{{3.7476486941575975`*^9, 3.74764870566781*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\[Theta]", "]"}]], "Input",
+ CellChangeTimes->{{3.7478074674920797`*^9, 3.7478074730744257`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"Sin", "[", 
+   RowBox[{"x", "+", "y"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7478075254152107`*^9, 3.7478075622978106`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", 
+  RowBox[{
+   RowBox[{"\[Pi]", "/", "2"}], ",", 
+   RowBox[{"\[Pi]", "/", "3"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.747807574600377*^9, 3.747807585819392*^9}}],
+
+Cell[BoxData[
+ FractionBox["1", "2"]], "Output",
+ CellChangeTimes->{3.747807586855719*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\[Theta]", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "k1", "]"}]}], "Input",
+ CellChangeTimes->{{3.7478076949383717`*^9, 3.747807709417678*^9}, {
+  3.747809108980157*^9, 3.7478091587932076`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Theta]", "[", "u_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"ArcSin", "[", 
+       RowBox[{"1", "-", 
+        RowBox[{"(", 
+         RowBox[{"50", "/", "u"}], ")"}]}], "]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{"180", "/", "\[Pi]"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"k1", "[", "u_", "]"}], ":=", 
+     RowBox[{"2", "*", "u", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"\[Theta]", "[", "u", "]"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"\[Pi]", "/", "180"}], ")"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.7476543072956877`*^9, 3.7476543457458363`*^9}, {
+   3.7476543789051447`*^9, 3.7476544510462275`*^9}, {3.747654485990719*^9, 
+   3.7476546492021713`*^9}, {3.7476548654009333`*^9, 3.74765488111586*^9}, {
+   3.7476549205010533`*^9, 3.74765493192051*^9}, {3.7476549762429934`*^9, 
+   3.7476549776871414`*^9}, {3.747655038888446*^9, 3.7476550449332285`*^9}, {
+   3.7476612356800346`*^9, 3.7476612428695855`*^9}, {3.747663359921444*^9, 
+   3.747663364219946*^9}, {3.747663408051708*^9, 3.747663409543747*^9}, {
+   3.7476634510249662`*^9, 3.747663469997398*^9}, {3.747663521721122*^9, 
+   3.7476635245128756`*^9}, {3.7476635594393063`*^9, 3.747663583263521*^9}, 
+   3.747663617993962*^9, {3.7476636784788446`*^9, 3.74766368124778*^9}, {
+   3.747663783407116*^9, 3.7476638328406057`*^9}, {3.7476638667749867`*^9, 
+   3.747663867253301*^9}, {3.747663923937985*^9, 3.7476640159937506`*^9}, {
+   3.7476640789633956`*^9, 3.747664080402128*^9}, {3.7476642513446493`*^9, 
+   3.747664278791231*^9}, {3.747664431128519*^9, 3.7476644325335894`*^9}, {
+   3.7478074450462728`*^9, 3.747807458848107*^9}, {3.747807617672984*^9, 
+   3.747807632505769*^9}, {3.747808634417013*^9, 3.747808636835294*^9}, {
+   3.747808688608124*^9, 3.7478086948880973`*^9}, {3.7478090155646014`*^9, 
+   3.74780901625922*^9}, {3.747809169404498*^9, 3.74780925584557*^9}, {
+   3.7478095216906567`*^9, 3.7478095329854045`*^9}, 3.7478096502481785`*^9, {
+   3.747809786696062*^9, 3.7478097943083577`*^9}, {3.747810302612244*^9, 
+   3.7478103132797813`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+     1.], LineBox[CompressedData["
+1:eJwVjWdQkwcAhmPQqo0ox6iD2hYoJwZKBTGKDfDCMQxfEjJIgkk+RCkgQ8GC
+CMgZkKEURDkFZHjGFeqiWitGMFgXAholDBu1olWWbHGgJELpj/ee5/n12myK
+F0RQKRQKZ3r/M7HDQKNQWLjhY/tpSiHGYWFB3nUqCxdCoy227BLjmu7r2YpZ
+LHgP0nOfpIsx84EHdfJLFj7kFCfVpIpR0qD4aLBiYc4s8bZfEsW4esWke9yR
+hbJWJ+1EpBhTZbT6EQkLTAf/ZWyuGPmh1gnPf2dBUlWxuX+pGJV7ZrzL2xqI
+5nUDGb5XRRh92fqi6DsCFSrniWVhIiwu1jdaPyTgMKMwc3yeCMzeky0JBWz0
+7Wk7NPNKMI7Fyr3tPDiQHqtkZccEg3LgiU5p5OB06UkviXUw3Gj7SKWaC8vU
+PM5inRBn1HTB56ggqDcXHbhWKIRpVsAlcwseHq7c0vsnS4gen5FtHbE8PK3+
+RtNOE4Lu7OL8+CYPg462jDidADHR4jQfGz4mOwrmRx8S4L7HmzRpKh82DgzV
+flIAx03xNL2ej65hRSDzewHeXdxTVsIQwL1hrNMwxEdnudU/JoUC6Pu8Mhdq
++LjTllv9aFAAuofeXJfHh/bUllUhfkIc9G69nSXjo/XuarbXKSHOb+QXjNH5
+8LGqDIsyCUbp0yx7rZGHNsP25Z6yYMTuYxaZtvGw0XXl7rTaYJzsGRuzreLB
+jBq5P8JChNydgb5iBQ/0z67lRTEiOEapNT+v5wHrXrnZNYmwNzVOGebCQ4rT
+3OxwGzFqAxf3LTDl4VyYefjcTDF2fltBy9cGgfjrstdopxhLKIrrcdlBoF19
+0JLDkOCCWVK/0TsIjTPuvckolqBDaZdz18CF6hXzLn1YAsHAHNfuOi5GRteV
+W/mF4Nz9eedv7OJiFXfN54gTIYiTDO4w8eSi0veIZYQhBJokQfw8Ey4o+d11
+TdL1OF9/vPn4bQ5yYk4sfHZpPaISXGjqfA6SthumTQpJhzbFXsRBWAtDOhAt
+hfxNzGF/aw623u4dF96UolT7Wpbcw0bKnHR7W1sZGK1UdXo1G0M7zvBcMmTo
+6+4dvZHCRlYGd8XI3zKsqCu3vRjAxlePO46ar5YjM8H2dJkFG83Nrbe69svR
+b6/M+PSKwOve6O7xHjmOWXf+6lpDYKaoqyTBj0S4ZdhQdg4Bb1m7sfQIiaDL
+VEyGEKCbN1XaHCXh4fVW6j7d5k0a5lklid/2FecmSQi8ZFSl158g4W7sXjAg
+IrDbPM3YdZrEkD6xXy8gcLPpW6NLDQnrl66aK2wCvmtiDfcekBjeoGvMBAGn
+kQ0VohYSjdti39d7EbBUBf/0XEdCERTnavQk0GXhuXOsnUSmc9mzZA8COSNm
+hkVPSdxpD/0Yt5ZAg6pmIqKXxKRZiYfcjUA1ebZ8pI9ErXBvfPlKAiWWyrWp
+/SRiSq9d1LsSiNydl1YwNP03+W+kyIXAF6HyiT/ekqAmvjgY5Exg2JJfznxP
+ovL58YDCHwg8uue3tuEDiTUWxTStEwGV+49pjz+RoNVN3Qp0JFA4arck3EDC
+UZWozqMTSK5aVDtoJLHUf76mcTmB0FBTafIkiUSJVjd7ugOsqBNTUyTcSqs/
++DsQ+A9bBTEe
+      "]]}}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{50., 54.31466563725408},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{50, 120}, {54.31466563725408, 89.99999836297776}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.747663618646994*^9, 3.747663683824622*^9, 3.7476638367969*^9, 
+   3.747663932891124*^9, {3.7476639745051103`*^9, 3.747664017877656*^9}, 
+   3.747664083444948*^9, {3.7476642614512367`*^9, 3.747664280341346*^9}, 
+   3.747664434361786*^9, 3.7478072855817275`*^9, {3.7478074512467675`*^9, 
+   3.747807475045697*^9}, 3.747807663420481*^9, 3.7478077121716337`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[Theta]", "[", "u", "]"}], ",", 
+     RowBox[{"k1", "[", "u", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"u", ",", "50", ",", "120"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7478073051071396`*^9, 3.747807305520793*^9}, {
+   3.7478074038140078`*^9, 3.7478074309718304`*^9}, {3.7478074854266872`*^9, 
+   3.747807488776811*^9}, {3.7478076399840117`*^9, 3.747807651135715*^9}, {
+   3.747809089172515*^9, 3.7478091017345295`*^9}, 3.747809343525696*^9, 
+   3.7478103239071083`*^9},
+ NumberMarks->False],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`u$$ = 50., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`u$$], 50, 120}}, Typeset`size$$ = {44., {0., 13.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`u$6551$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`u$$ = 50}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`u$$, $CellContext`u$6551$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`k1[$CellContext`u$$],
+       "Specifications" :> {{$CellContext`u$$, 50, 120}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{383., {71., 80.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.7476636581930118`*^9, 3.7478073135243692`*^9, 3.747807404913353*^9, 
+   3.747807435556101*^9, 3.7478074902298746`*^9, {3.7478076525874624`*^9, 
+   3.7478076665102763`*^9}, 3.747807715077202*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"k1", "=", 
+  RowBox[{"Sin", "[", "x", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7478077323194094`*^9, 3.7478077388418427`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7476613135947585`*^9, 3.747661321091002*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"180", " ", 
+   RowBox[{"ArcCos", "[", 
+    RowBox[{"1", "-", 
+     FractionBox["50", "100"]}], "]"}]}], "\[Pi]"]], "Input",
+ CellChangeTimes->{{3.747654771569909*^9, 3.7476547740761642`*^9}, {
+  3.747654835722288*^9, 3.747654845618806*^9}}],
+
+Cell[BoxData["60"], "Output",
+ CellChangeTimes->{3.747654776761983*^9, 3.747654848677622*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  FractionBox[
+   RowBox[{"180", " ", 
+    RowBox[{"ArcCos", "[", 
+     FractionBox["1", "6"], "]"}]}], "\[Pi]"], "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData["80.40593177313954`"], "Input",
+ CellChangeTimes->{{3.7478210581210456`*^9, 3.747821061716358*^9}}],
+
+Cell[BoxData[{"ClearAll", "\[IndentingNewLine]", 
+ RowBox[{"k", "=", 
+  RowBox[{"Li", "*", 
+   RowBox[{"Sin", "[", 
+    RowBox[{"\[Phi]", "+"}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.7478210686559067`*^9, 3.74782116995192*^9}}]
+},
+WindowSize->{1457, 771},
+WindowMargins->{{-6, Automatic}, {Automatic, 0}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 220, 6, 45, "Input"],
+Cell[803, 30, 90, 1, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[930, 36, 18459, 446, 98, "WolframAlphaShortInput"],
+Cell[19392, 484, 496, 14, 69, "Output"]
+}, Open  ]],
+Cell[19903, 501, 85, 1, 44, "WolframAlphaShortInput"],
+Cell[CellGroupData[{
+Cell[20013, 506, 280, 7, 45, "Input"],
+Cell[20296, 515, 201, 5, 77, "Output"]
+}, Open  ]],
+Cell[20512, 523, 135, 2, 45, "Input"],
+Cell[20650, 527, 228, 6, 45, "Input"],
+Cell[CellGroupData[{
+Cell[20903, 537, 199, 5, 45, "Input"],
+Cell[21105, 544, 90, 2, 65, "Output"]
+}, Open  ]],
+Cell[21210, 549, 246, 4, 75, "Input"],
+Cell[CellGroupData[{
+Cell[21481, 557, 2241, 43, 133, "Input"],
+Cell[23725, 602, 3501, 70, 355, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27263, 677, 612, 14, 45, "Input"],
+Cell[27878, 693, 1738, 35, 175, "Output"]
+}, Open  ]],
+Cell[29631, 731, 150, 3, 45, "Input"],
+Cell[29784, 736, 94, 1, 45, "Input"],
+Cell[CellGroupData[{
+Cell[29903, 741, 279, 7, 98, "Input"],
+Cell[30185, 750, 93, 1, 45, "Output"]
+}, Open  ]],
+Cell[30293, 754, 185, 6, 98, "Input"],
+Cell[30481, 762, 112, 1, 45, InheritFromParent],
+Cell[30596, 765, 228, 5, 75, "Input"]
+}
+]
+*)
+

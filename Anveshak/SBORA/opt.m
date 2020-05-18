@@ -1,0 +1,9 @@
+fun = @(x)computeMV(x);
+x0=[0,0,0,0];
+lb=[0,0,0,0];
+ub=[600,1,500,0.1];
+A=[];
+b=[];
+Aeq=[];
+beq=[];
+x = fmincon(fun,x0,A,b,Aeq,beq,lb,ub);

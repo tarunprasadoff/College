@@ -1,0 +1,11 @@
+A=[1,.1;-.3,.65];
+B=[0;1];
+C=[1,0];
+E=[0;1];
+F=1;
+Q=E*.0001*E';
+R2=F*1*F';
+[X,L,G]=dare(A',C',Q,R2);
+Kg=A*X*C'*inv(C*X*C'+R2);
+K=inv(A)*Kg;
+poles=eig(A-K*C)

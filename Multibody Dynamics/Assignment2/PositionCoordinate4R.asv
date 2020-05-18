@@ -1,0 +1,29 @@
+clear all
+close all
+% This file determines the kinematic 
+% constraint equations in analytical form
+% O is common point in link 1 and link 2 
+syms l1 l2 l3 l4 
+syms xa ya xb yb xq yq
+O = [0; 0] ; % Coordinates of O 
+A = [xa; ya] ; % Coordinates of A 
+dOA=A-O;
+eq1= dOA'*dOA-l2^2;
+B = [xb; yb] ; % Coordinates of B
+dAB=B-A;
+eq2= dAB'*dAB-l3^2;
+Q = [xq; yq] ; % Coordinates of C
+dBQ=Q-B;
+eq3= dBQ'*dBQ-l3^2;
+B3 = [l3/2; 0] ; % coordinates of B in the local coordinate system 3
+B4 = [l4/2; 0] ; % coordinates of B in the local coordinate system 4 
+lhseq3 = loc2global(theta4)*B4+[x4; y4] ; 
+rhseq3 = loc2global(theta3)*B3+[x3; y3] ;
+eq3 = lhseq3-rhseq3 
+% Q is a common point in link4 and link 1 
+Q1 = [l1; 0] ; % coordinates of Q in the local coordinate system 1 
+Q4 = [-l4/2; 0] ; % coordinates of Q in the local coordinate system 4 
+lhseq4 = loc2global(theta4)*Q4+[x4; y4] ; 
+rhseq4 = Q1 ;
+eq4 = lhseq4-rhseq4 
+

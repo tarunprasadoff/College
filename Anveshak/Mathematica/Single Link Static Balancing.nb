@@ -1,0 +1,282 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9879,        274]
+NotebookOptionsPosition[      9224,        249]
+NotebookOutlinePosition[      9585,        265]
+CellTagsIndexPosition[      9542,        262]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Phi]", "[", 
+    RowBox[{"b_", ",", "c_", ",", "d_", ",", "\[Theta]_"}], "]"}], ":=", 
+   RowBox[{"ArcCos", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"c", "*", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "+", "d"}], ")"}], "/", " ", 
+     "b"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"a", "[", 
+    RowBox[{"b_", ",", "c_", ",", "d_", ",", "\[Theta]_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"c", "*", 
+     RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "+", 
+    RowBox[{"b", "*", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Phi]", "[", 
+       RowBox[{"b", ",", "c", ",", "d", ",", "\[Theta]"}], "]"}], "]"}]}]}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"a0", "[", 
+    RowBox[{"b_", ",", "c_", ",", "d_"}], "]"}], ":=", 
+   RowBox[{"c", "+", 
+    RowBox[{"b", "*", 
+     RowBox[{"(", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"ArcCos", "[", 
+        RowBox[{"d", "/", "b"}], "]"}], "]"}], ")"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Fs", "[", 
+    RowBox[{"b_", ",", "c_", ",", "d_", ",", "\[Theta]_", ",", "k_"}], "]"}], 
+   ":=", 
+   RowBox[{"k", "*", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"a", "[", 
+       RowBox[{"b", ",", "c", ",", "d", ",", "\[Theta]"}], "]"}], "-", 
+      RowBox[{"a0", "[", 
+       RowBox[{"b", ",", "c", ",", "d"}], "]"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ms", "[", 
+    RowBox[{"b_", ",", "c_", ",", "d_", ",", "\[Theta]_", ",", "k_"}], "]"}], 
+   ":=", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"Fs", "[", 
+      RowBox[{"b", ",", "c", ",", "d", ",", "\[Theta]", ",", "k"}], "]"}]}], 
+    "*", "c", "*", 
+    RowBox[{
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]", "-", 
+       RowBox[{"\[Phi]", "[", 
+        RowBox[{"b", ",", "c", ",", "d", ",", "\[Theta]"}], "]"}]}], "]"}], 
+     "/", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Phi]", "[", 
+       RowBox[{"b", ",", "c", ",", "d", ",", "\[Theta]"}], "]"}], "]"}]}]}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Mw", "[", "\[Theta]_", "]"}], ":=", 
+   RowBox[{"5", "*", "9.8", "*", 
+    RowBox[{"Sin", "[", "\[Theta]", "]"}], "*", "150"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Ms", "[", 
+        RowBox[{"b", ",", "c", ",", "d", ",", "\[Theta]", ",", "k"}], "]"}], 
+       ",", 
+       RowBox[{"Mw", "[", "\[Theta]", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", 
+       RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", "0", ",", "150"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"c", ",", "0", ",", "20"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", "0", ",", "30"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "0", ",", "1000"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7574954435725684`*^9, 3.75749555907008*^9}, {
+   3.7574957620089183`*^9, 3.7574958858230114`*^9}, {3.7574959314999723`*^9, 
+   3.7574960554937525`*^9}, {3.7574960865896664`*^9, 
+   3.7574961669239593`*^9}, {3.757496199111931*^9, 3.75749646238577*^9}, {
+   3.7574965379573746`*^9, 3.757496620315276*^9}, {3.7574967385571613`*^9, 
+   3.7574969289221053`*^9}, {3.757496972983252*^9, 3.7574972367701445`*^9}, {
+   3.757497293048869*^9, 3.7574973034431777`*^9}, {3.757497337236642*^9, 
+   3.7574973908769913`*^9}, 3.7574975852425127`*^9, 3.7574976682966814`*^9, {
+   3.7574977750045476`*^9, 3.7574977773253117`*^9}, {3.7575546804778633`*^9, 
+   3.757554690891034*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b$$ = 95.2, $CellContext`c$$ = 
+    9.8, $CellContext`d$$ = 15.55, $CellContext`k$$ = 90., Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`b$$], 0, 150}, {
+      Hold[$CellContext`c$$], 0, 20}, {
+      Hold[$CellContext`d$$], 0, 30}, {
+      Hold[$CellContext`k$$], 0, 1000}}, Typeset`size$$ = {
+    360., {103., 108.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`b$1884$$ = 
+    0, $CellContext`c$1885$$ = 0, $CellContext`d$1886$$ = 
+    0, $CellContext`k$1887$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b$$ = 0, $CellContext`c$$ = 
+        0, $CellContext`d$$ = 0, $CellContext`k$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`b$$, $CellContext`b$1884$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$1885$$, 0], 
+        Hold[$CellContext`d$$, $CellContext`d$1886$$, 0], 
+        Hold[$CellContext`k$$, $CellContext`k$1887$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`Ms[$CellContext`b$$, $CellContext`c$$, \
+$CellContext`d$$, $CellContext`\[Theta], $CellContext`k$$], 
+         $CellContext`Mw[$CellContext`\[Theta]]}, {$CellContext`\[Theta], 0, 
+         Pi/2}], "Specifications" :> {{$CellContext`b$$, 0, 
+         150}, {$CellContext`c$$, 0, 20}, {$CellContext`d$$, 0, 
+         30}, {$CellContext`k$$, 0, 1000}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {192., 198.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.757497401872667*^9, 3.757497592385415*^9, 
+  3.7574976728852835`*^9, 3.7574977805486317`*^9, 3.757554696958819*^9, 
+  3.7575548585080743`*^9, 3.7591486625428143`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Power","infy",
+   "\"Infinite expression \\!\\(\\*FractionBox[\\\"1\\\", \\\"0\\\"]\\) \
+encountered.\"",2,8,9,31625544555909721041,"fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7591486662497272`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Infinity","indet",
+   "\"Indeterminate expression \\!\\(\\*RowBox[{\\\"0.`\\\", \\\" \\\", \
+\\\"ComplexInfinity\\\"}]\\) encountered.\"",2,8,10,31625544555909721041,
+   "fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7591486662846355`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Power","infy",
+   "\"Infinite expression \\!\\(\\*FractionBox[\\\"1\\\", \\\"0\\\"]\\) \
+encountered.\"",2,8,11,31625544555909721041,"fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.759148666315683*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Infinity","indet",
+   "\"Indeterminate expression \\!\\(\\*RowBox[{\\\"0\\\", \\\" \\\", \
+\\\"ComplexInfinity\\\"}]\\) encountered.\"",2,8,12,31625544555909721041,
+   "fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7591486663474674`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Power","infy",
+   "\"Infinite expression \\!\\(\\*FractionBox[\\\"1\\\", \\\"0\\\"]\\) \
+encountered.\"",2,8,13,31625544555909721041,"fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.759148666377418*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Power\\\", \\\"::\\\", \
+\\\"infy\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,8,14,31625544555909721041,"fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7591486664033165`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Infinity","indet",
+   "\"Indeterminate expression \\!\\(\\*RowBox[{\\\"0.`\\\", \\\" \\\", \
+\\\"ComplexInfinity\\\"}]\\) encountered.\"",2,8,15,31625544555909721041,
+   "fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.759148666433237*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Infinity\\\", \
+\\\"::\\\", \\\"indet\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,8,16,31625544555909721041,"fasak"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7591486664731317`*^9}]
+}, Open  ]]
+},
+Evaluator->"fasak",
+WindowSize->{1520, 781},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3721, 104, 145, "Input"],
+Cell[4304, 128, 2542, 49, 407, "Output"],
+Cell[6849, 179, 258, 6, 47, "Message"],
+Cell[7110, 187, 296, 7, 21, "Message"],
+Cell[7409, 196, 257, 6, 47, "Message"],
+Cell[7669, 204, 294, 7, 21, "Message"],
+Cell[7966, 213, 257, 6, 47, "Message"],
+Cell[8226, 221, 339, 7, 21, "Message"],
+Cell[8568, 230, 294, 7, 21, "Message"],
+Cell[8865, 239, 343, 7, 21, "Message"]
+}, Open  ]]
+}
+]
+*)
+

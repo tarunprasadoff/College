@@ -1,0 +1,19 @@
+function PE=PE(P,i,j)
+y=P(1);
+h=P(2);
+k=P(3);
+d=P(4);
+beta=i*(pi/180);
+c=j*(pi/180);
+L1=0.2;
+L2=0.1;
+m1=0.175;
+m2=0.09;
+m3=0.18;
+g=9.8;
+L0=((h-y-L1)^2+d^2)^.5;
+alpha=c+beta-pi;
+theta=atan((d+L1*cos(beta)+y*cos(alpha))/(h-L1*sin(beta)-y*sin(alpha)));
+%x=(d+y*cos(alpha)+L1*cos(beta)-L0*sin(theta))/sin(theta);
+PE=(m1*g*L1*sin(beta)+m2*g*L2*sin(alpha)+2*m2*g*L1*sin(beta)+k*((d+L1*cos(beta)+y*cos(alpha)-L0*sin(theta))/sin(theta))^2+2*m3*g*h-m3*g*L0*cos(theta)-m3*g*(h-L1*sin(beta)-y*sin(alpha)-L0*cos(theta)))/2;
+end
