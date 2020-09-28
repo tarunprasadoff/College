@@ -1,0 +1,328 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9945,        318]
+NotebookOptionsPosition[      9434,        297]
+NotebookOutlinePosition[      9777,        312]
+CellTagsIndexPosition[      9734,        309]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Formulation", ":", "\n", "\n", 
+     RowBox[{
+      RowBox[{"a0", " ", "*", " ", 
+       RowBox[{"(", " ", 
+        RowBox[{"x", " ", "^", " ", "2"}], " ", ")"}]}], " ", "+", " ", 
+      RowBox[{"a1", " ", "*", " ", "x"}], " ", "+", " ", "a2"}]}], " ", "=", 
+    " ", "0"}], "\n"}], "Subsubsection"], "\n", 
+ StyleBox[
+  RowBox[{
+  "To", " ", "check", " ", "if", " ", "all", " ", "coefficients", " ", "are", 
+   " ", "real", " ", 
+   RowBox[{"number", ":"}]}], "Subsubsection"]}], "Input",
+ CellChangeTimes->{{3.806999278559121*^9, 3.8069992785820837`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"isAllCoefficientReal", "[", 
+   RowBox[{"a0_", ",", " ", "a1_", ",", " ", "a2_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Im", "[", "a0", "]"}], "\[Equal]", "0"}], " ", "&&", " ", 
+     RowBox[{
+      RowBox[{"Im", "[", "a1", "]"}], "\[Equal]", "0"}], " ", "&&", " ", 
+     RowBox[{
+      RowBox[{"Im", "[", "a2", "]"}], "\[Equal]", "0"}]}], ",", " ", "True", 
+    ",", " ", "False"}], "]"}]}]], "Input"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "For", " ", "computing", " ", "the", " ", "roots", " ", "of", " ", "the", 
+     " ", 
+     RowBox[{"equation", ":", "\n", "\n", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], " ", "+", " ", 
+       RowBox[{
+        RowBox[{"(", " ", 
+         RowBox[{"a1", " ", "/", " ", "a0"}], ")"}], " ", "*", " ", 
+        "x"}]}]}]}], " ", "=", "  ", 
+    RowBox[{
+     RowBox[{"-", "a2"}], " ", "/", " ", "a0"}]}], "\n"}], 
+  "Subsubsection"], "\n", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", " ", 
+       RowBox[{"2", " ", "*", " ", 
+        RowBox[{"(", " ", 
+         RowBox[{"a1", " ", "/", " ", 
+          RowBox[{"(", " ", 
+           RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], " ", ")"}]}], 
+       " ", ")"}], " ", "*", " ", "x"}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", " ", 
+       RowBox[{"a1", " ", "/", " ", 
+        RowBox[{"(", " ", 
+         RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], " ", ")"}], "^", 
+      "2"}]}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", " ", 
+       RowBox[{"a1", " ", "/", " ", 
+        RowBox[{"(", " ", 
+         RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], " ", ")"}], "^", 
+      "2"}], " ", "-", " ", 
+     RowBox[{"(", " ", 
+      RowBox[{"a2", " ", "/", " ", "a0"}], " ", ")"}]}]}], "\n"}], 
+  "Subsubsection"], "\n", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", " ", 
+      RowBox[{"x", " ", "+", " ", 
+       RowBox[{"(", " ", 
+        RowBox[{"a1", " ", "/", " ", 
+         RowBox[{"(", " ", 
+          RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], " ", ")"}]}], " ",
+       ")"}], " ", "^", " ", "2"}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{"(", " ", 
+      RowBox[{
+       RowBox[{"(", " ", 
+        RowBox[{"a1", " ", "^", " ", "2"}], " ", ")"}], " ", "-", " ", 
+       RowBox[{"(", " ", 
+        RowBox[{"4", " ", "*", " ", "a0", " ", "*", " ", "a2"}], " ", ")"}]}],
+       " ", ")"}], " ", "/", " ", 
+     RowBox[{"(", " ", 
+      RowBox[{
+       RowBox[{"(", " ", 
+        RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}], " ", "^", " ", "2"}], 
+      ")"}]}]}], "\n", " "}], "Subsubsection"], "\n", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", " ", "+", " ", 
+     RowBox[{"(", " ", 
+      RowBox[{"a1", " ", "/", " ", 
+       RowBox[{"(", " ", 
+        RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], " ", ")"}]}], "  ", 
+    "=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", " ", 
+        RowBox[{
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"(", " ", 
+            RowBox[{"a1", " ", "^", " ", "2"}], " ", ")"}], " ", "-", " ", 
+           RowBox[{"(", " ", 
+            RowBox[{"4", " ", "*", " ", "a0", " ", "*", " ", "a2"}], " ", 
+            ")"}]}], " ", ")"}], " ", "^", " ", "0.5"}], " ", ")"}], " ", "/",
+        " ", 
+       RowBox[{"(", " ", 
+        RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], " ", "or"}], "  ", 
+     "-", " ", 
+     RowBox[{
+      RowBox[{"(", " ", 
+       RowBox[{
+        RowBox[{"(", " ", 
+         RowBox[{
+          RowBox[{"(", " ", 
+           RowBox[{"a1", " ", "^", " ", "2"}], " ", ")"}], " ", "-", " ", 
+          RowBox[{"(", " ", 
+           RowBox[{"4", " ", "*", " ", "a0", " ", "*", " ", "a2"}], " ", 
+           ")"}]}], " ", ")"}], " ", "^", " ", "0.5"}], " ", ")"}], " ", "/", 
+      " ", 
+      RowBox[{"(", " ", 
+       RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}]}]}], "\n"}], 
+  "Subsubsection"], "\n", 
+ StyleBox[
+  RowBox[{"x", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", "  ", 
+      RowBox[{
+       RowBox[{"-", " ", "a1"}], " ", "+", " ", 
+       RowBox[{"(", " ", 
+        RowBox[{
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"(", " ", 
+            RowBox[{"a1", " ", "^", " ", "2"}], " ", ")"}], " ", "-", " ", 
+           RowBox[{"(", " ", 
+            RowBox[{"4", " ", "*", " ", "a0", " ", "*", " ", "a2"}], " ", 
+            ")"}]}], " ", ")"}], " ", "^", " ", "0.5"}], " ", ")"}]}], " ", 
+      ")"}], " ", "/", " ", 
+     RowBox[{"(", " ", 
+      RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}], "  ", "or", "  ", 
+    RowBox[{
+     RowBox[{"(", "  ", 
+      RowBox[{
+       RowBox[{"-", " ", "a1"}], " ", "-", " ", 
+       RowBox[{"(", " ", 
+        RowBox[{
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"(", " ", 
+            RowBox[{"a1", " ", "^", " ", "2"}], " ", ")"}], " ", "-", " ", 
+           RowBox[{"(", " ", 
+            RowBox[{"4", " ", "*", " ", "a0", " ", "*", " ", "a2"}], " ", 
+            ")"}]}], " ", ")"}], " ", "^", " ", "0.5"}], " ", ")"}]}], " ", 
+      ")"}], " ", "/", " ", 
+     RowBox[{"(", " ", 
+      RowBox[{"2", " ", "*", " ", "a0"}], " ", ")"}]}]}]}], 
+  "Subsubsection"]}], "Input",
+ CellChangeTimes->{{3.806999329997549*^9, 3.8069993300384636`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"root1", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "a1"}], "+", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a1", "^", "2"}], ")"}], "-", 
+           RowBox[{"(", 
+            RowBox[{"4", "*", "a0", "*", "a2"}], ")"}]}], ")"}], "^", "0.5"}],
+         ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "*", "a0"}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"root2", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "a1"}], "-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a1", "^", "2"}], ")"}], "-", 
+           RowBox[{"(", 
+            RowBox[{"4", "*", "a0", "*", "a2"}], ")"}]}], ")"}], "^", "0.5"}],
+         ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "*", "a0"}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"expression", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"a0", "*", 
+      RowBox[{"(", 
+       RowBox[{"x", "^", "2"}], ")"}]}], "+", 
+     RowBox[{"a1", "*", "x"}], "+", "a2"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{"expression", " ", "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", " ", "\[Rule]", " ", "root1"}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"expression", " ", "/.", 
+   RowBox[{"{", 
+    RowBox[{"x", " ", "\[Rule]", " ", "root2"}], "}"}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["a1", "2"]}], "+", 
+   RowBox[{"4", " ", "a0", " ", "a2"}], "+", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["a1", "2"], "-", 
+      RowBox[{"4", " ", "a0", " ", "a2"}]}], ")"}], "1.`"]}], 
+  RowBox[{"4", " ", "a0"}]]], "Output",
+ CellChangeTimes->{3.8069993642389593`*^9}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["a1", "2"]}], "+", 
+   RowBox[{"4", " ", "a0", " ", "a2"}], "+", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["a1", "2"], "-", 
+      RowBox[{"4", " ", "a0", " ", "a2"}]}], ")"}], "1.`"]}], 
+  RowBox[{"4", " ", "a0"}]]], "Output",
+ CellChangeTimes->{3.8069993642429533`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "The", " ", "substitution", " ", "of", " ", "both", " ", "the", " ", 
+   "roots", " ", "yield", " ", "a", " ", "residual", " ", "whose", " ", 
+   "value", " ", "is", " ", "0"}], "Subsubsection"]], "Input"]
+},
+WindowSize->{1536, 821},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 619, 16, 179, "Input"],
+Cell[1180, 38, 500, 13, 30, "Input"],
+Cell[1683, 53, 4951, 145, 383, "Input"],
+Cell[CellGroupData[{
+Cell[6659, 202, 1753, 57, 183, "Input"],
+Cell[8415, 261, 377, 12, 57, "Output"],
+Cell[8795, 275, 377, 12, 57, "Output"]
+}, Open  ]],
+Cell[9187, 290, 243, 5, 42, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

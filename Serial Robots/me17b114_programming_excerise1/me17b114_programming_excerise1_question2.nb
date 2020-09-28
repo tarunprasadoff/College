@@ -1,0 +1,541 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16999,        531]
+NotebookOptionsPosition[     15008,        461]
+NotebookOutlinePosition[     15373,        477]
+CellTagsIndexPosition[     15330,        474]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "For", " ", "evaluating", " ", "the", " ", "roots", " ", "and", " ", "the", 
+   " ", "residual", " ", "values", " ", "for", " ", "the", " ", "6", " ", 
+   "given", " ", 
+   RowBox[{"cases", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.806999675051426*^9, 3.8069997308881364`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"isAllCoefficientReal", "[", 
+    RowBox[{"a0_", ",", " ", "a1_", ",", " ", "a2_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Im", "[", "a0", "]"}], "\[Equal]", "0"}], " ", "&&", " ", 
+      RowBox[{
+       RowBox[{"Im", "[", "a1", "]"}], "\[Equal]", "0"}], " ", "&&", " ", 
+      RowBox[{
+       RowBox[{"Im", "[", "a2", "]"}], "\[Equal]", "0"}]}], ",", " ", "True", 
+     ",", " ", "False"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"root1", "[", 
+    RowBox[{"x_", ",", " ", "y_", ",", " ", "z_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"isAllCoefficientReal", "[", 
+      RowBox[{"x", ",", " ", "y", ",", " ", "z"}], "]"}], ",", " ", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"x", "\[Equal]", "0"}], ",", " ", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"y", "\[Equal]", "0"}], ",", " ", 
+         "\"\<No Solutions Exist\>\"", ",", " ", 
+         RowBox[{
+          RowBox[{"-", "z"}], "/", "y"}]}], "]"}], ",", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "y"}], "+", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"y", "^", "2"}], ")"}], "-", 
+              RowBox[{"(", 
+               RowBox[{"4", "*", "x", "*", "z"}], ")"}]}], ")"}], "^", 
+            "0.5"}], ")"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "*", "x"}], ")"}]}]}], "]"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"root2", "[", 
+   RowBox[{"x_", ",", " ", "y_", ",", " ", "z_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"isAllCoefficientReal", "[", 
+     RowBox[{"x", ",", " ", "y", ",", " ", "z"}], "]"}], ",", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"x", "\[Equal]", "0"}], ",", " ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"y", "\[Equal]", "0"}], ",", " ", 
+        "\"\<No Solutions Exist\>\"", ",", " ", 
+        RowBox[{
+         RowBox[{"-", "z"}], "/", "y"}]}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "y"}], "-", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"y", "^", "2"}], ")"}], "-", 
+             RowBox[{"(", 
+              RowBox[{"4", "*", "x", "*", "z"}], ")"}]}], ")"}], "^", "0.5"}],
+           ")"}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"2", "*", "x"}], ")"}]}]}], "]"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8069999825956593`*^9, 3.8069999906767583`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Case", " ", 
+   RowBox[{"A", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.806999824779441*^9, 3.806999827639592*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Print", "[", "\"\<The roots of {0,0,0} are: \>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"root1", "[", 
+  RowBox[{"0", ",", "0", ",", "0"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"root2", "[", 
+  RowBox[{"0", ",", "0", ",", "0"}], "]"}]}], "Input"],
+
+Cell[BoxData["\<\"The roots of {0,0,0} are: \"\>"], "Print",
+ CellChangeTimes->{
+  3.8069998499282618`*^9, {3.806999941678276*^9, 3.806999958267856*^9}, 
+   3.807000003157037*^9}],
+
+Cell[BoxData["\<\"No Solutions Exist\"\>"], "Output",
+ CellChangeTimes->{
+  3.806999849932282*^9, {3.8069999416833367`*^9, 3.8069999582718477`*^9}, 
+   3.807000003161278*^9}],
+
+Cell[BoxData["\<\"No Solutions Exist\"\>"], "Output",
+ CellChangeTimes->{
+  3.806999849932282*^9, {3.8069999416833367`*^9, 3.8069999582718477`*^9}, 
+   3.8070000031643105`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Case", " ", 
+   RowBox[{"B", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.807000020817691*^9, 3.8070000217039185`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Print", "[", "\"\<The roots of {0,1,1} are: \>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"root1", "[", 
+  RowBox[{"0", ",", "1", ",", "1"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"root2", "[", 
+  RowBox[{"0", ",", "1", ",", "1"}], "]"}]}], "Input"],
+
+Cell[BoxData["\<\"The roots of {0,1,1} are: \"\>"], "Print",
+ CellChangeTimes->{3.8070000513957276`*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellChangeTimes->{3.8070000513974714`*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellChangeTimes->{3.8070000513995523`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The residual value of the expression at the one root for coefficients \
+{0,1,1} is \>\"", ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", 
+      RowBox[{"-", "1"}]}], "}"}]}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The residual value of the expression at the one root for \
+coefficients {0,1,1} is \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm[
+  "The residual value of the expression at the one root for coefficients \
+{0,1,1} is ", 0],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.80700009606459*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Case", " ", 
+   RowBox[{"C", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.8070000612329597`*^9, 3.8070000619824533`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Print", "[", "\"\<The roots of {0,0,1} are: \>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"root1", "[", 
+  RowBox[{"0", ",", "0", ",", "1"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"root2", "[", 
+  RowBox[{"0", ",", "0", ",", "1"}], "]"}]}], "Input"],
+
+Cell[BoxData["\<\"The roots of {0,0,1} are: \"\>"], "Print",
+ CellChangeTimes->{3.8070001323415756`*^9}],
+
+Cell[BoxData["\<\"No Solutions Exist\"\>"], "Output",
+ CellChangeTimes->{3.8070001323446865`*^9}],
+
+Cell[BoxData["\<\"No Solutions Exist\"\>"], "Output",
+ CellChangeTimes->{3.807000132347495*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Case", " ", 
+   RowBox[{"D", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.807000148459381*^9, 3.8070001492029963`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"r1", " ", "=", " ", 
+  RowBox[{"root1", "[", 
+   RowBox[{"1", ",", "1", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"r2", " ", "=", " ", 
+  RowBox[{"root2", "[", 
+   RowBox[{"1", ",", "1", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The roots of {1,1,1} are: \>\"", ",", " ", "r1", ",", " ", 
+   "\"\< and \>\"", " ", ",", " ", "r2"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The residual value of the expression at the two root for coefficients \
+{1,1,1} are \>\"", ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], " ", "+", " ", "x", "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", "r1"}], "}"}]}], ",", " ", "\"\< and \>\"", 
+   ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], " ", "+", " ", "x", "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", "r2"}], "}"}]}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "0.49999999999999994`"}], "+", 
+  RowBox[{"0.8660254037844387`", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{3.807000167592574*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "0.5`"}], "-", 
+  RowBox[{"0.8660254037844387`", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{3.807000167595525*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The roots of {1,1,1} are: \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", "0.49999999999999994`"}], "+", 
+    RowBox[{"0.8660254037844387`", " ", "\[ImaginaryI]"}]}], 
+   "\[InvisibleSpace]", "\<\" and \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", "0.5`"}], "-", 
+    RowBox[{"0.8660254037844387`", " ", "\[ImaginaryI]"}]}]}],
+  SequenceForm["The roots of {1,1,1} are: ", 
+   Complex[-0.49999999999999994`, 0.8660254037844387], " and ", 
+   Complex[-0.5, -0.8660254037844387]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.807000167598516*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The residual value of the expression at the two root for \
+coefficients {1,1,1} are \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", "1.1102230246251565`*^-16"}], "+", 
+    RowBox[{"1.1102230246251565`*^-16", " ", "\[ImaginaryI]"}]}], 
+   "\[InvisibleSpace]", "\<\" and \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", "1.1102230246251565`*^-16"}], "+", 
+    RowBox[{"0.`", " ", "\[ImaginaryI]"}]}]}],
+  SequenceForm[
+  "The residual value of the expression at the two root for coefficients \
+{1,1,1} are ", 
+   Complex[-1.1102230246251565`*^-16, 1.1102230246251565`*^-16], " and ", 
+   Complex[-1.1102230246251565`*^-16, 0.]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8070001676014757`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Case", " ", 
+   RowBox[{"E", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.807000185907956*^9, 3.80700018674759*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"r3", " ", "=", " ", 
+  RowBox[{"root1", "[", 
+   RowBox[{"1", ",", "2", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"r4", " ", "=", " ", 
+  RowBox[{"root2", "[", 
+   RowBox[{"1", ",", "2", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The roots of {1,2,1} are: \>\"", ",", " ", "r3", ",", " ", 
+   "\"\< and \>\"", " ", ",", " ", "r4"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The residual value of the expression at the two root for coefficients \
+{1,2,1} are \>\"", ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], " ", "+", " ", 
+      RowBox[{"2", " ", "*", "x"}], "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", "r3"}], "}"}]}], ",", " ", "\"\< and \>\"", 
+   ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], " ", "+", " ", 
+      RowBox[{"2", "*", "x"}], "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", "r4"}], "}"}]}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{"-", "1.`"}]], "Output",
+ CellChangeTimes->{3.807000201394775*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "1.`"}]], "Output",
+ CellChangeTimes->{3.8070002013967695`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The roots of {1,2,1} are: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "1.`"}], "\[InvisibleSpace]", "\<\" and \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "1.`"}]}],
+  SequenceForm["The roots of {1,2,1} are: ", -1., " and ", -1.],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8070002013987637`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The residual value of the expression at the two root for \
+coefficients {1,2,1} are \"\>", "\[InvisibleSpace]", "0.`", 
+   "\[InvisibleSpace]", "\<\" and \"\>", "\[InvisibleSpace]", "0.`"}],
+  SequenceForm[
+  "The residual value of the expression at the two root for coefficients \
+{1,2,1} are ", 0., " and ", 0.],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.807000201401781*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Case", " ", 
+   RowBox[{"F", ":"}]}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.8070002240974655`*^9, 3.807000225217817*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"r5", " ", "=", " ", 
+  RowBox[{"root1", "[", 
+   RowBox[{"2", ",", "5", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"r6", " ", "=", " ", 
+  RowBox[{"root2", "[", 
+   RowBox[{"2", ",", "5", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The roots of {2,5,1} are: \>\"", ",", " ", "r5", ",", " ", 
+   "\"\< and \>\"", " ", ",", " ", "r6"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The residual value of the expression at the two root for coefficients \
+{2,5,1} are \>\"", ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", "*", 
+       RowBox[{"(", 
+        RowBox[{"x", "^", "2"}], ")"}]}], " ", "+", " ", 
+      RowBox[{"5", " ", "*", "x"}], "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", "r5"}], "}"}]}], ",", " ", "\"\< and \>\"", 
+   ",", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", "*", 
+       RowBox[{"(", 
+        RowBox[{"x", "^", "2"}], ")"}]}], " ", "+", " ", 
+      RowBox[{"5", " ", "*", "x"}], "+", "1"}], ")"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{"x", "\[Rule]", " ", "r6"}], "}"}]}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{"-", "0.21922359359558485`"}]], "Output",
+ CellChangeTimes->{3.807000235049842*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "2.2807764064044154`"}]], "Output",
+ CellChangeTimes->{3.8070002350517282`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The roots of {2,5,1} are: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "0.21922359359558485`"}], 
+   "\[InvisibleSpace]", "\<\" and \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "2.2807764064044154`"}]}],
+  SequenceForm[
+  "The roots of {2,5,1} are: ", -0.21922359359558485`, 
+   " and ", -2.2807764064044154`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8070002350547237`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The residual value of the expression at the two root for \
+coefficients {2,5,1} are \"\>", "\[InvisibleSpace]", 
+   "4.163336342344337`*^-17", "\[InvisibleSpace]", "\<\" and \"\>", 
+   "\[InvisibleSpace]", "1.7763568394002505`*^-15"}],
+  SequenceForm[
+  "The residual value of the expression at the two root for coefficients \
+{2,5,1} are ", 4.163336342344337*^-17, " and ", 1.7763568394002505`*^-15],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8070002350577126`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{768, 821},
+WindowMargins->{{Automatic, -8}, {Automatic, -8}},
+CellContext->Notebook,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 332, 7, 77, "Input"],
+Cell[893, 29, 2817, 80, 202, "Input"],
+Cell[3713, 111, 167, 4, 42, "Input"],
+Cell[CellGroupData[{
+Cell[3905, 119, 280, 6, 69, "Input"],
+Cell[4188, 127, 179, 3, 22, "Print"],
+Cell[4370, 132, 174, 3, 30, "Output"],
+Cell[4547, 137, 176, 3, 30, "Output"]
+}, Open  ]],
+Cell[4738, 143, 169, 4, 42, "Input"],
+Cell[CellGroupData[{
+Cell[4932, 151, 280, 6, 69, "Input"],
+Cell[5215, 159, 104, 1, 22, "Print"],
+Cell[5322, 162, 89, 2, 30, "Output"],
+Cell[5414, 166, 89, 2, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5540, 173, 339, 10, 50, "Input"],
+Cell[5882, 185, 346, 8, 22, "Print"]
+}, Open  ]],
+Cell[6243, 196, 171, 4, 42, "Input"],
+Cell[CellGroupData[{
+Cell[6439, 204, 280, 6, 69, "Input"],
+Cell[6722, 212, 104, 1, 22, "Print"],
+Cell[6829, 215, 97, 1, 30, "Output"],
+Cell[6929, 218, 95, 1, 30, "Output"]
+}, Open  ]],
+Cell[7039, 222, 169, 4, 42, "Input"],
+Cell[CellGroupData[{
+Cell[7233, 230, 1030, 27, 126, "Input"],
+Cell[8266, 259, 182, 4, 30, "Output"],
+Cell[8451, 265, 166, 4, 30, "Output"],
+Cell[CellGroupData[{
+Cell[8642, 273, 620, 14, 22, "Print"],
+Cell[9265, 289, 768, 17, 42, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[10060, 310, 166, 4, 42, "Input"],
+Cell[CellGroupData[{
+Cell[10251, 318, 1089, 29, 126, "Input"],
+Cell[11343, 349, 89, 2, 30, "Output"],
+Cell[11435, 353, 91, 2, 30, "Output"],
+Cell[CellGroupData[{
+Cell[11551, 359, 358, 8, 22, "Print"],
+Cell[11912, 369, 435, 9, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[12374, 382, 169, 4, 42, "Input"],
+Cell[CellGroupData[{
+Cell[12568, 390, 1208, 33, 126, "Input"],
+Cell[13779, 425, 106, 2, 30, "Output"],
+Cell[13888, 429, 107, 2, 30, "Output"],
+Cell[CellGroupData[{
+Cell[14020, 435, 433, 10, 22, "Print"],
+Cell[14456, 447, 524, 10, 42, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

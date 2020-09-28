@@ -1,0 +1,612 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24103,        604]
+NotebookOptionsPosition[     23324,        574]
+NotebookOutlinePosition[     23667,        589]
+CellTagsIndexPosition[     23624,        586]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+From Problem 4:
+\t
+\tR(\[CurlyPhi]) = I + (sin\[CurlyPhi] * K) + (1 \[Minus] cos\[CurlyPhi]) * \
+K^2 where K is the matrix obtained from applying the ^ operator on the axis \
+of rotation k, I being the identity matrix and \[CurlyPhi] being the angle of \
+rotation.
+,\
+\>", "Text",
+ CellChangeTimes->{{3.81027910687978*^9, 3.810279268369105*^9}, {
+  3.810279302356618*^9, 3.8102793551233892`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"axisToRotMat", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a_", ",", " ", "b_", ",", " ", "c_"}], "}"}], ",", "\[Phi]_"}], 
+   "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"skSymMat", ",", " ", "rotMat"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Validating", " ", "if", " ", "input", " ", "vector", " ", "is", " ", 
+      "a", " ", "unit", " ", "vector"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Abs", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", "^", "2"}], "+", 
+              RowBox[{"b", "^", "2"}], "+", 
+              RowBox[{"c", "^", "2"}]}], ")"}], "^", ".5"}], ")"}], "-", 
+          "1"}], "]"}], ">", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "12"}]}]}], ",", 
+       RowBox[{"Return", " ", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Input rotation-axis vector is not a unit-vector\>\"", 
+         "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"skSymMat", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", 
+          RowBox[{"-", "c"}], ",", " ", "b"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"c", ",", " ", "0", ",", " ", 
+          RowBox[{"-", "a"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "b"}], ",", " ", "a", ",", " ", "0"}], "}"}]}], 
+       "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"rotMat", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"IdentityMatrix", "[", "3", "]"}], " ", "+", " ", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Phi]", "]"}], " ", "*", " ", "skSymMat"}], " ",
+        "+", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", " ", "-", " ", 
+          RowBox[{"Cos", "[", "\[Phi]", "]"}]}], ")"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"skSymMat", ".", "skSymMat"}], ")"}]}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", "rotMat", "]"}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.810279541707099*^9, 3.8102795877370415`*^9}, {
+   3.810279639067958*^9, 3.810279687911748*^9}, {3.8102797641265497`*^9, 
+   3.8102798016563787`*^9}, {3.810279850160415*^9, 3.8102800574397745`*^9}, {
+   3.8102800961300197`*^9, 3.810280245740801*^9}, {3.8102803178659887`*^9, 
+   3.8102803204771585`*^9}, {3.8102804081613107`*^9, 3.810280415998645*^9}, {
+   3.8102804463965845`*^9, 3.8102805923765097`*^9}, 3.8102806631583405`*^9, {
+   3.810280723472449*^9, 3.8102807384666605`*^9}, {3.8102808224619093`*^9, 
+   3.8102808713921413`*^9}, {3.810287172636917*^9, 3.8102871731402273`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"t1", " ", "=", " ", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t2", " ", "=", " ", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t3", " ", "=", " ", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"t1", ",", "t2", ",", "t3"}], "}"}], " ", "/", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"t1", "^", "2"}], "+", 
+        RowBox[{"t2", "^", "2"}], "+", 
+        RowBox[{"t3", "^", "2"}]}], ")"}], "^", ".5"}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Theta]", " ", "=", " ", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "\[Pi]"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<The input rotation axis is: \>\"", ",", " ", "t", ",", " ", 
+   "\"\< and rotation angle is \>\"", ",", " ", "\[Theta]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<The computed rotation matrix is \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"axisToRotMat", "[", 
+      RowBox[{"t", ",", "\[Theta]"}], "]"}], "]"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.81028028274605*^9, 3.810280303959144*^9}, {
+   3.810280342567486*^9, 3.8102803987971096`*^9}, {3.810280670273939*^9, 
+   3.8102806935910797`*^9}, {3.810286894016798*^9, 3.8102869992392025`*^9}, {
+   3.8102870317657404`*^9, 3.8102870391044173`*^9}, {3.8102872455135736`*^9, 
+   3.8102873507294617`*^9}, 3.810287427248294*^9, {3.8102875724898424`*^9, 
+   3.8102876073244705`*^9}, {3.8102877441088247`*^9, 3.810287768098962*^9}, {
+   3.8102879473961906`*^9, 3.8102879562847967`*^9}, {3.810288105079383*^9, 
+   3.810288114471292*^9}, {3.810288766469984*^9, 3.8102887746455736`*^9}, {
+   3.810288820450862*^9, 3.810288852845132*^9}, {3.8102889952281303`*^9, 
+   3.8102889954573812`*^9}, {3.810291226346787*^9, 3.810291226664502*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The input rotation axis is: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.38010372970027545`"}], ",", 
+     RowBox[{"-", "0.38156706003341323`"}], ",", 
+     RowBox[{"-", "0.8425720938681731`"}]}], "}"}], 
+   "\[InvisibleSpace]", "\<\" and rotation angle is \"\>", 
+   "\[InvisibleSpace]", "2.042609270241212`"}],
+  SequenceForm[
+  "The input rotation axis is: ", {-0.38010372970027545`, \
+-0.38156706003341323`, -0.8425720938681731}, " and rotation angle is ", 
+   2.042609270241212],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8102803829892135`*^9, 3.810280422332392*^9, {3.8102804589151864`*^9, 
+   3.8102804811444187`*^9}, {3.8102805120447035`*^9, 3.810280526375203*^9}, 
+   3.8102805639412923`*^9, 3.810280597421214*^9, {3.810280666606373*^9, 
+   3.810280694303087*^9}, 3.8102808257795877`*^9, 3.8102808756177177`*^9, 
+   3.810287060995282*^9, 3.810287466024513*^9, 3.8102876123700666`*^9, {
+   3.8102879642449827`*^9, 3.81028800828541*^9}, {3.8102891060168695`*^9, 
+   3.8102891169626627`*^9}, {3.8102892019565935`*^9, 3.810289282488237*^9}, 
+   3.810290844865426*^9, {3.810290934585002*^9, 3.8102909527567263`*^9}, {
+   3.810291280396948*^9, 3.810291286271676*^9}, {3.8103068727366886`*^9, 
+   3.810306894189411*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The computed rotation matrix is \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", "0.24435714761855643`"}], "0.9614713000029111`", 
+        "0.12594651118008432`"},
+       {
+        RowBox[{"-", "0.5395637507191728`"}], 
+        RowBox[{"-", "0.2427359947483252`"}], "0.806194886961831`"},
+       {"0.8057049976992703`", "0.12904331104033712`", "0.5780893361394634`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm["The computed rotation matrix is ", 
+   MatrixForm[{{-0.24435714761855643`, 0.9614713000029111, 
+    0.12594651118008432`}, {-0.5395637507191728, -0.2427359947483252, 
+    0.806194886961831}, {0.8057049976992703, 0.12904331104033712`, 
+    0.5780893361394634}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8102803829892135`*^9, 3.810280422332392*^9, {3.8102804589151864`*^9, 
+   3.8102804811444187`*^9}, {3.8102805120447035`*^9, 3.810280526375203*^9}, 
+   3.8102805639412923`*^9, 3.810280597421214*^9, {3.810280666606373*^9, 
+   3.810280694303087*^9}, 3.8102808257795877`*^9, 3.8102808756177177`*^9, 
+   3.810287060995282*^9, 3.810287466024513*^9, 3.8102876123700666`*^9, {
+   3.8102879642449827`*^9, 3.81028800828541*^9}, {3.8102891060168695`*^9, 
+   3.8102891169626627`*^9}, {3.8102892019565935`*^9, 3.810289282488237*^9}, 
+   3.810290844865426*^9, {3.810290934585002*^9, 3.8102909527567263`*^9}, {
+   3.810291280396948*^9, 3.810291286271676*^9}, {3.8103068727366886`*^9, 
+   3.810306894196415*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"isZeroMatrix", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1_", ",", " ", "y1_", ",", " ", "z1_"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2_", ",", " ", "y2_", ",", " ", "z2_"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3_", ",", " ", "y3_", ",", " ", "z3_"}], "}"}]}], "}"}], 
+   "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "residue", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"residue", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"Abs", "[", "x1", "]"}], "+", 
+       RowBox[{"Abs", "[", "x2", "]"}], "+", 
+       RowBox[{"Abs", "[", "x3", "]"}], "+", 
+       RowBox[{"Abs", "[", "y1", "]"}], "+", 
+       RowBox[{"Abs", "[", "y2", "]"}], "+", 
+       RowBox[{"Abs", "[", "y3", "]"}], "+", 
+       RowBox[{"Abs", "[", "z1", "]"}], "+", 
+       RowBox[{"Abs", "[", "z2", "]"}], "+", 
+       RowBox[{"Abs", "[", "z3", "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"residue", "<", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "12"}]}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"True", ",", " ", "residue"}], "}"}], "]"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"False", ",", "residue"}], "}"}], "]"}]}], "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.810284958480169*^9, 3.810284996281165*^9}, {
+  3.810285031424819*^9, 3.8102852495344653`*^9}, {3.8102891980483217`*^9, 
+  3.81028919858971*^9}, {3.8102892653834476`*^9, 3.8102892658785706`*^9}, {
+  3.8102896292837934`*^9, 3.810289678147379*^9}, {3.810290910647006*^9, 
+  3.810290931722616*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"det3x3", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x1_", ",", " ", "y1_", ",", " ", "z1_"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x2_", ",", " ", "y2_", ",", " ", "z2_"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x3_", ",", " ", "y3_", ",", " ", "z3_"}], "}"}]}], "}"}], 
+    "]"}], " ", ":=", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"x1", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"y2", "*", "z3"}], "-", 
+        RowBox[{"z2", "*", "y3"}]}], ")"}]}], "-", 
+     RowBox[{"x2", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"y1", "*", "z3"}], "-", 
+        RowBox[{"z1", "*", "y3"}]}], ")"}]}], "+", 
+     RowBox[{"x3", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"y1", "*", "z2"}], "-", 
+        RowBox[{"z1", "*", "y2"}]}], ")"}]}]}], ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.810306439772094*^9, 3.8103065584480124`*^9}}],
+
+Cell[TextData[{
+ "\nFrom second question it is shown that k = [ R - ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["R", "T"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["]", "V"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " / |(2 * Sin \[Phi])| where k is the eigen-vector that is the axis of \
+rotation, \[Phi] is the angle of rotation and R is the rotation matrix."
+}], "Text",
+ CellChangeTimes->{{3.8102831998501835`*^9, 3.810283274216066*^9}, {
+  3.8102833096186824`*^9, 3.8102833911772346`*^9}, {3.8102890062426076`*^9, 
+  3.8102890095877647`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rotMatToAxis", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1_", ",", " ", "y1_", ",", " ", "z1_"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2_", ",", " ", "y2_", ",", " ", "z2_"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3_", ",", " ", "y3_", ",", " ", "z3_"}], "}"}]}], "}"}], 
+   "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "rotMat", ",", " ", "int", ",", " ", "mag", ",", " ", "a", ",", " ", "b",
+       ",", " ", "c", ",", " ", "k", ",", " ", "\[Phi]", ",", " ", "\[Phi]1", 
+      ",", " ", "\[Phi]2", ",", " ", "\[Phi]3", ",", " ", "\[Phi]4", ",", " ",
+       "residue1", ",", " ", "residue2"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"rotMat", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x1", ",", "y1", ",", "z1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x2", ",", "y2", ",", "z2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x3", ",", "y3", ",", "z3"}], "}"}]}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Validating", " ", "if", " ", "the", " ", "input", " ", "matrix", " ", 
+       "satisfies", " ", "the", " ", "requirements", " ", "of", " ", "a", " ",
+        "Rotation", " ", "Matrix"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"!", 
+           RowBox[{
+            RowBox[{"isZeroMatrix", "[", 
+             RowBox[{
+              RowBox[{"rotMat", ".", 
+               RowBox[{"Transpose", "[", "rotMat", "]"}]}], " ", "-", " ", 
+              RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ")"}], "&&", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"det3x3", "[", "rotMat", "]"}], "-", "1"}], "]"}], "<", 
+           RowBox[{"10", "^", 
+            RowBox[{"-", "12"}]}]}], ")"}]}], ")"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Input rotation-matrix is not a R3 rotation matrix\>\"", 
+         "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"int", " ", "=", " ", 
+      RowBox[{"rotMat", " ", "-", " ", 
+       RowBox[{"Transpose", "[", "rotMat", "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"-", 
+       RowBox[{
+        RowBox[{"int", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "[", 
+        RowBox[{"[", "3", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"b", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"int", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "[", 
+       RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"c", " ", "=", " ", 
+      RowBox[{"-", 
+       RowBox[{
+        RowBox[{"int", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"mag", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", "^", "2"}], "+", 
+         RowBox[{"b", "^", "2"}], "+", 
+         RowBox[{"c", "^", "2"}]}], ")"}], "^", ".5"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Abs", "[", "mag", "]"}], "<", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "15"}]}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Rotation axis vector found to be 0 vector, cannot be \
+computed.\>\"", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"k", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c"}], "}"}], "/", "mag"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\[Phi]1", " ", "=", " ", 
+      RowBox[{"ArcSin", "[", 
+       RowBox[{"mag", "/", "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"\[Phi]2", " ", "=", " ", 
+      RowBox[{"\[Pi]", "-", "\[Phi]1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Either", " ", "of", " ", "\[Phi]1", " ", "or", " ", "\[Phi]2", " ", 
+       "could", " ", "be", " ", "the", " ", "actual", " ", "angle", " ", "of",
+        " ", 
+       RowBox[{"transformation", ".", " ", "Validating"}], " ", "which", " ", 
+       "among", " ", "them", " ", "is", " ", "the", " ", "actual", " ", 
+       "rotation", " ", "angle"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"residue1", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"isZeroMatrix", "[", 
+        RowBox[{
+         RowBox[{"axisToRotMat", "[", 
+          RowBox[{"k", ",", "\[Phi]1"}], "]"}], "-", "rotMat"}], "]"}], "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"residue2", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"isZeroMatrix", "[", 
+        RowBox[{
+         RowBox[{"axisToRotMat", "[", 
+          RowBox[{"k", ",", "\[Phi]2"}], "]"}], "-", "rotMat"}], "]"}], "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Switch", "[", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{"residue1", ",", "residue2"}], "]"}], ",", "residue1", ",", 
+       RowBox[{"\[Phi]", "=", "\[Phi]1"}], ",", " ", "residue2", ",", " ", 
+       RowBox[{"\[Phi]", "=", "\[Phi]2"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Shifting", " ", "the", " ", "solution", " ", "span"}], " ", 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", "\[Phi]"}], "}"}], "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.81028125995338*^9, 3.8102814581841917`*^9}, {
+   3.8102819135688267`*^9, 3.81028191436019*^9}, {3.810282127491705*^9, 
+   3.810282166944926*^9}, {3.810282220989606*^9, 3.8102822548463774`*^9}, {
+   3.8102823016833367`*^9, 3.810282303575018*^9}, {3.81028233821467*^9, 
+   3.8102824669617357`*^9}, {3.810283405517783*^9, 3.810283466848571*^9}, {
+   3.8102835247735415`*^9, 3.81028354306944*^9}, {3.8102835779192677`*^9, 
+   3.8102837437867002`*^9}, {3.810283790835411*^9, 3.810283902305899*^9}, {
+   3.8102841238524127`*^9, 3.810284138206516*^9}, {3.8102841751998754`*^9, 
+   3.8102842180840034`*^9}, {3.810284354832748*^9, 3.810284397852083*^9}, {
+   3.810284441177741*^9, 3.8102844952817583`*^9}, {3.8102845811562443`*^9, 
+   3.81028467128796*^9}, {3.8102847153524165`*^9, 3.8102847295465813`*^9}, {
+   3.8102847694387016`*^9, 3.8102847723333216`*^9}, {3.8102848397170944`*^9, 
+   3.810284914656584*^9}, {3.8102853474209766`*^9, 3.8102855577916803`*^9}, {
+   3.8102866419576*^9, 3.8102867400709295`*^9}, {3.8102871214979467`*^9, 
+   3.810287158743947*^9}, 3.8102871999024086`*^9, {3.810287787980877*^9, 
+   3.810287798083272*^9}, {3.8102878541637073`*^9, 3.8102878543595*^9}, {
+   3.8102888584939117`*^9, 3.8102888710509415`*^9}, {3.8102890887261114`*^9, 
+   3.8102890988134165`*^9}, {3.8102894661968565`*^9, 
+   3.8102896118482356`*^9}, {3.8102896922375093`*^9, 3.810289734098325*^9}, {
+   3.81029071857769*^9, 3.810290835150631*^9}, {3.810291215802486*^9, 
+   3.810291221275732*^9}, {3.8102912529355307`*^9, 3.81029127498835*^9}, {
+   3.810302781955844*^9, 3.8103029592516365`*^9}, {3.810303042391389*^9, 
+   3.81030304849415*^9}, {3.8103067398938456`*^9, 3.810306836309315*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ans", " ", "=", " ", 
+   RowBox[{"rotMatToAxis", "[", 
+    RowBox[{"axisToRotMat", "[", 
+     RowBox[{"t", ",", "\[Theta]"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<The reverse computed rotation axis is \>\"", ",", 
+   RowBox[{"ans", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], ",", "\"\< and rotation angle is \>\"", 
+   ",", " ", 
+   RowBox[{"ans", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.810282278872303*^9, 3.81028229378454*^9}, {
+   3.810283481747983*^9, 3.810283508838296*^9}, 3.810284214833516*^9, {
+   3.8102865823947897`*^9, 3.8102866361641192`*^9}, {3.8102870843584623`*^9, 
+   3.8102870900817566`*^9}, {3.810287365356331*^9, 3.8102874545856204`*^9}, {
+   3.8102878266621327`*^9, 3.8102878473732524`*^9}, {3.8102880017042456`*^9, 
+   3.8102880041111975`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The reverse computed rotation axis is \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.3801037297002755`"}], ",", 
+     RowBox[{"-", "0.3815670600334132`"}], ",", 
+     RowBox[{"-", "0.8425720938681731`"}]}], "}"}], 
+   "\[InvisibleSpace]", "\<\" and rotation angle is \"\>", 
+   "\[InvisibleSpace]", "2.042609270241212`"}],
+  SequenceForm[
+  "The reverse computed rotation axis is ", {-0.3801037297002755, \
+-0.3815670600334132, -0.8425720938681731}, " and rotation angle is ", 
+   2.042609270241212],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.810287466117541*^9, 3.8102876124626784`*^9, 3.810287803894071*^9, {
+   3.810287850497548*^9, 3.8102878593494587`*^9}, {3.810287964340948*^9, 
+   3.8102880083764105`*^9}, {3.810289106111864*^9, 3.810289117059662*^9}, {
+   3.81028920204659*^9, 3.810289282579235*^9}, 3.8102908450094247`*^9, {
+   3.8102909346891117`*^9, 3.810290952855738*^9}, {3.8102912804949484`*^9, 
+   3.8102912863746133`*^9}, {3.810306872826779*^9, 3.8103068942984104`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+
+The notebook takes unit vectors of random input rotation axis and random \
+rotation angle computes the rotation matrix and then uses the rotation matrix \
+to reverse compute the input rotation axis and rotation angle. It has been \
+tested for several iterations of execution and the notebook gave correct \
+result for every iteration. Some of the validations done are to check if the \
+input rotation axis vector is a unit vector and the input rotation matrix is \
+an orthogonal matrix. Also the case where the rotation angle lying between \
+\[Pi]/2 and \[Pi] has been handled specifically. The case where the \
+rotation-axis vector goes to a zero vector has been handled separately.\
+\>", "Text",
+ CellChangeTimes->{{3.810291303794485*^9, 3.810291522589658*^9}, {
+  3.810306917189329*^9, 3.8103069568696704`*^9}}]
+},
+WindowSize->{1536, 821},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 406, 10, 87, "Text"],
+Cell[967, 32, 2850, 72, 145, "Input"],
+Cell[CellGroupData[{
+Cell[3842, 108, 2352, 61, 145, "Input"],
+Cell[CellGroupData[{
+Cell[6219, 173, 1318, 25, 22, "Print"],
+Cell[7540, 200, 2014, 41, 50, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[9581, 245, 1747, 43, 88, "Input"],
+Cell[11331, 290, 980, 30, 30, "Input"],
+Cell[12314, 322, 625, 16, 51, "Text"],
+Cell[12942, 340, 7529, 169, 392, "Input"],
+Cell[CellGroupData[{
+Cell[20496, 513, 897, 19, 50, "Input"],
+Cell[21396, 534, 1084, 22, 22, "Print"]
+}, Open  ]],
+Cell[22495, 559, 825, 13, 87, "Text"]
+}
+]
+*)
+
