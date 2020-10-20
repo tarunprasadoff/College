@@ -1,0 +1,1002 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     37505,        994]
+NotebookOptionsPosition[     35886,        933]
+NotebookOutlinePosition[     36228,        948]
+CellTagsIndexPosition[     36185,        945]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<<", "\"\<mathutils.m\>\""}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Importing required previous notebooks:", "Subsection",
+ CellChangeTimes->{{3.812090243670553*^9, 3.8120902611971817`*^9}, {
+  3.812094869236967*^9, 3.812094869558526*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nb2", "=", 
+   RowBox[{"NotebookOpen", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+       "\"\<me17b114_assignment3_question2.nb\>\""}], "}"}], "]"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"NotebookEvaluate", "[", 
+   RowBox[{"nb2", ",", 
+    RowBox[{"InsertResults", "\[Rule]", "True"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NotebookClose", "[", "nb2", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.812090149612815*^9, 3.812090182834427*^9}, {
+   3.812094873070115*^9, 3.812094875470256*^9}, {3.8120956055576878`*^9, 
+   3.8120956089741936`*^9}, {3.8120956445877376`*^9, 3.8120956741224318`*^9}, 
+   3.8120958856561947`*^9, {3.812095918538908*^9, 3.8120959632731256`*^9}, {
+   3.8120961386507864`*^9, 3.8120961787226057`*^9}, {3.8121034301827908`*^9, 
+   3.8121034305233903`*^9}, {3.812104935539624*^9, 3.8121049441188946`*^9}, {
+   3.8121059755668163`*^9, 3.8121059850075617`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+(a) Defining the function for obtaining the homogenous transformation matrix \
+given DH-parameters:\
+\>", "Subsection",
+ CellChangeTimes->{{3.8120911585763135`*^9, 3.81209119672727*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DH2HomTrans", "[", 
+   RowBox[{"{", 
+    RowBox[{"a_", ",", "\[Alpha]_", ",", "d_", ",", "\[Theta]_"}], "}"}], 
+   "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Computing", " ", "the", " ", "homogenous", " ", "transformation", " ", 
+      "matrix"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Return", "[", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", 
+          RowBox[{"-", 
+           RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", "0", ",", "a"}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Theta]", "]"}], "*", 
+           RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]", "]"}], "*", 
+           RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], ",", 
+          RowBox[{"-", 
+           RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], "*", "d"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Theta]", "]"}], "*", 
+           RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Alpha]", "]"}], "*", 
+           RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ",", 
+          RowBox[{"Cos", "[", "\[Alpha]", "]"}], ",", 
+          RowBox[{"d", "*", 
+           RowBox[{"Cos", "[", "\[Alpha]", "]"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}]}], "}"}], "]"}], 
+     ";"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.812091275631104*^9, 3.812091280112819*^9}, {
+   3.8120913126712513`*^9, 3.8120913617438993`*^9}, 3.812091396095889*^9, {
+   3.8120914308366556`*^9, 3.8120915188192606`*^9}, {3.812091573449003*^9, 
+   3.81209157684217*^9}, {3.812091650950819*^9, 3.812092019714783*^9}, {
+   3.8120937925621934`*^9, 3.8120937977659206`*^9}, 3.812104388722992*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Testing the DH2HomTrans Function:", "Subsection",
+ CellChangeTimes->{{3.812092146960205*^9, 3.8120921634851427`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testDH", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"RandomReal", "[", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+     RowBox[{"RandomReal", "[", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}], ",", 
+     RowBox[{"RandomReal", "[", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+     RowBox[{"RandomReal", "[", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solveDH2HomTrans", " ", "=", " ", 
+   RowBox[{"DH2HomTrans", "[", "testDH", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<The homogenous transformation matrix obtained for test DH-parameters: \
+\>\"", ",", "testDH", ",", "\"\< is \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "solveDH2HomTrans", "]"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8120922047095513`*^9, 3.812092242442334*^9}, {
+  3.8120922895521746`*^9, 3.812092423685032*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The homogenous transformation matrix obtained for test \
+DH-parameters: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "3.0003542940518493`", ",", "5.20160860981445`", ",", 
+     "3.7320504603853504`", ",", "0.7129062937253225`"}], "}"}], 
+   "\[InvisibleSpace]", "\<\" is \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0.756464255492792`", 
+        RowBox[{"-", "0.6540350374114035`"}], "0", "3.0003542940518493`"},
+       {"0.30735539310030474`", "0.355490692874098`", "0.8826998525048313`", 
+        "3.2942803909227365`"},
+       {
+        RowBox[{"-", "0.5773166310560377`"}], 
+        RowBox[{"-", "0.6677308867486644`"}], "0.46993719834457576`", 
+        "1.7538293374340757`"},
+       {"0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "The homogenous transformation matrix obtained for test DH-parameters: ", {
+   3.0003542940518493`, 5.20160860981445, 3.7320504603853504`, 
+   0.7129062937253225}, " is ", 
+   MatrixForm[{{
+     0.756464255492792, -0.6540350374114035, 0, 3.0003542940518493`}, {
+     0.30735539310030474`, 0.355490692874098, 0.8826998525048313, 
+     3.2942803909227365`}, {-0.5773166310560377, -0.6677308867486644, 
+     0.46993719834457576`, 1.7538293374340757`}, {0, 0, 0, 1}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.812092428410143*^9, 3.812094946346701*^9, 
+  3.8120956564037695`*^9, 3.8121046857969327`*^9, 3.8121048810541697`*^9, 
+  3.812104964359517*^9, 3.8121058595673265`*^9, 3.8121058926832867`*^9, 
+  3.81210602421271*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+(b) Defining function to multiply two transformation matrices:\
+\>", "Subsection",
+ CellChangeTimes->{{3.812093258738817*^9, 3.8120932805191007`*^9}, {
+  3.812098910172988*^9, 3.8120989120277576`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"multiplyHomTrans", "[", 
+   RowBox[{"T1_", ",", "T2_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "r1", ",", "r2", ",", "t1", ",", "t2", ",", " ", "r1Cond", ",", " ", 
+      "r2Cond"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Checking", " ", "if", " ", "the", " ", "given", " ", "Transformation", 
+      " ", "Matrices", " ", "have", " ", "the", " ", "right", " ", 
+      "dimension"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Dimensions", "[", "T1", "]"}], " ", "==", " ", 
+           RowBox[{"{", 
+            RowBox[{"4", ",", "4"}], "}"}]}], " ", "&&", " ", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "T2", "]"}], " ", "==", " ", 
+           RowBox[{"{", 
+            RowBox[{"4", ",", "4"}], "}"}]}]}], ")"}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Please ensure the Transformation Matrices are of \
+dimension 4*4\>\"", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Extracting", " ", "the", " ", "independent", " ", "entities"}],
+       "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"r1", " ", "=", " ", 
+      RowBox[{"T1", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "3"}], ",", 
+         RowBox[{"1", ";;", "3"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"r2", " ", "=", " ", 
+      RowBox[{"T2", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "3"}], ",", 
+         RowBox[{"1", ";;", "3"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Checking", " ", "if", " ", "homogenous", " ", "transformation", " ", 
+       "matrices"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"r1Cond", " ", "=", " ", 
+      RowBox[{"!", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"isZero3x3Matrix", "[", 
+           RowBox[{
+            RowBox[{"r1", ".", 
+             RowBox[{"Transpose", "[", "r1", "]"}]}], " ", "-", " ", 
+            RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "]"}], ")"}], "&&", 
+         " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"det3x3", "[", "r1", "]"}], "-", "1"}], "]"}], "<", 
+           RowBox[{"10", "^", 
+            RowBox[{"-", "12"}]}]}], ")"}]}], ")"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"r2Cond", " ", "=", " ", 
+      RowBox[{"!", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"isZero3x3Matrix", "[", 
+           RowBox[{
+            RowBox[{"r2", ".", 
+             RowBox[{"Transpose", "[", "r2", "]"}]}], " ", "-", " ", 
+            RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "]"}], ")"}], "&&", 
+         " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"det3x3", "[", "r2", "]"}], "-", "1"}], "]"}], "<", 
+           RowBox[{"10", "^", 
+            RowBox[{"-", "12"}]}]}], ")"}]}], ")"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"r1Cond", " ", "||", " ", "r2Cond"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Please ensure Input matrices are homogenous \
+transformation matrices\>\"", "]"}], "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"t1", " ", "=", " ", 
+      RowBox[{"T1", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "3"}], ",", "4"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"t2", " ", "=", " ", 
+      RowBox[{"T2", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "3"}], ",", "4"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Multiplying", " ", "the", " ", "homogenous", " ", "transformation", 
+       " ", "matrices"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"r1", ".", "r2"}], ",", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{"t1", "+", 
+             RowBox[{"r1", ".", "t2"}]}], "}"}], "]"}], ",", "2"}], "]"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}], "}"}]}], "]"}], 
+      "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.81209337806514*^9, 3.81209340524249*^9}, {
+   3.8120934406804953`*^9, 3.81209354664758*^9}, {3.812093584398075*^9, 
+   3.812093631016571*^9}, {3.8120938016818905`*^9, 3.8120939630263095`*^9}, {
+   3.812094123181179*^9, 3.8120941807601843`*^9}, {3.812095009163335*^9, 
+   3.8120950099310412`*^9}, {3.8120962160001945`*^9, 3.812096412832401*^9}, {
+   3.8120965737513647`*^9, 3.8120965746538005`*^9}, {3.812097201004331*^9, 
+   3.812097211871282*^9}, {3.8120975346006536`*^9, 3.812097563303959*^9}, {
+   3.812097623726136*^9, 3.812097660893754*^9}, {3.812098354511052*^9, 
+   3.8120983809409447`*^9}, {3.8120986089904013`*^9, 
+   3.8120986132545457`*^9}, {3.8121003088576775`*^9, 3.812100311524557*^9}, 
+   3.8121044153655796`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+(c) Defining a function to invert a homogenous transformation matrix:\
+\>", "Subsection",
+ CellChangeTimes->{{3.8120977443046465`*^9, 3.812097776868744*^9}, {
+  3.812098916105332*^9, 3.8120989185470915`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"invertHomTrans", "[", "T_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"r", ",", "t"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Checking", " ", "if", " ", "the", " ", "given", " ", "Transformation", 
+      " ", "Matrix", " ", "has", " ", "the", " ", "right", " ", "dimension"}],
+      "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "T", "]"}], " ", "==", " ", 
+          RowBox[{"{", 
+           RowBox[{"4", ",", "4"}], "}"}]}], ")"}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Please ensure the Transformation Matrix is of dimension \
+4*4\>\"", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "To", " ", "check", " ", "if", " ", "the", " ", "given", " ", 
+       "Transformation", " ", "Matrix", " ", "has", " ", "only", " ", "real", 
+       " ", "values"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"(", 
+         RowBox[{"AllTrue", "[", 
+          RowBox[{"T", ",", "realQ", ",", "4"}], "]"}], ")"}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Please ensure the Transformation Matrix does not contain \
+any non-real values\>\"", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Extracting", " ", "the", " ", "independent", " ", "entities"}],
+       "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"r", " ", "=", " ", 
+      RowBox[{"T", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "3"}], ",", 
+         RowBox[{"1", ";;", "3"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Checking", " ", "if", " ", "homogenous", " ", "transformation", " ", 
+       "matrix"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"If", "[", " ", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"isZero3x3Matrix", "[", 
+            RowBox[{
+             RowBox[{"r", ".", 
+              RowBox[{"Transpose", "[", "r", "]"}]}], " ", "-", " ", 
+             RowBox[{"IdentityMatrix", "[", "3", "]"}]}], "]"}], ")"}], "&&", 
+          " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Abs", "[", 
+             RowBox[{
+              RowBox[{"det3x3", "[", "r", "]"}], "-", "1"}], "]"}], "<", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "12"}]}]}], ")"}]}], ")"}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Please ensure Input matrix is a homogenous \
+transformation matrix\>\"", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Computing", " ", "the", " ", "inverse"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"t", " ", "=", " ", 
+      RowBox[{"T", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"1", ";;", "3"}], ",", "4"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"Transpose", "[", "r", "]"}], ",", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{"-", 
+             RowBox[{
+              RowBox[{"Transpose", "[", "r", "]"}], ".", "t"}]}], "}"}], 
+           "]"}], ",", "2"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}], "}"}]}], "]"}], 
+      "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8120982095013084`*^9, 3.8120983381629915`*^9}, {
+  3.812098387887269*^9, 3.812098392024845*^9}, {3.812098430850635*^9, 
+  3.8120984538925357`*^9}, {3.812098498683625*^9, 3.8120986788167887`*^9}, {
+  3.8120988668723354`*^9, 3.812098891230769*^9}, {3.8120997171414356`*^9, 
+  3.8120997243800373`*^9}, {3.812099820918292*^9, 3.8120998246264586`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["(d) Testing multiplyHomTrans and invertHomTrans functions:", \
+"Subsection",
+ CellChangeTimes->{{3.8120989895850677`*^9, 3.8120990255983305`*^9}, {
+  3.8121005049251633`*^9, 3.8121005069650183`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testHomTrans", " ", "=", " ", 
+   RowBox[{"DH2HomTrans", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"RandomReal", "[", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+      RowBox[{"RandomReal", "[", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"RandomReal", "[", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+      RowBox[{"RandomReal", "[", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<The test homogenous transformation matrix is \>\"", ",", " ", 
+    RowBox[{"MatrixForm", "[", "testHomTrans", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"inverseHomTrans", " ", "=", " ", 
+   RowBox[{"invertHomTrans", "[", "testHomTrans", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<The inverse of the test homogenous transformation matrix obtained is \
+\>\"", ",", " ", 
+    RowBox[{"MatrixForm", "[", "inverseHomTrans", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"multiplyHomTransAndInvHomTrans", " ", "=", " ", 
+   RowBox[{"multiplyHomTrans", "[", 
+    RowBox[{"testHomTrans", ",", "inverseHomTrans"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<The multiplication between the inverse of the test homogenous matrix \
+and the test homogenous matrix obtained using multiplyHomTrans and \
+invertHomTrans functions yields \>\"", ",", 
+    RowBox[{"Chop", "[", "multiplyHomTransAndInvHomTrans", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Chop", "[", "multiplyHomTransAndInvHomTrans", "]"}], " ", "==", 
+     RowBox[{"IdentityMatrix", "[", "4", "]"}]}], ",", 
+    RowBox[{
+    "Print", "[", 
+     "\"\<This is a 4*4 Identity Matrix. Hence both the functions are working \
+ideally.\>\"", "]"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.812099049099868*^9, 3.8120991423730593`*^9}, {
+  3.8120992367523794`*^9, 3.812099416040162*^9}, {3.8120994484344482`*^9, 
+  3.812099485041958*^9}, {3.812099748315467*^9, 3.812099800596731*^9}, {
+  3.8120998418899493`*^9, 3.812099871630612*^9}, {3.8121000824874616`*^9, 
+  3.812100101100751*^9}, {3.8121003481109943`*^9, 3.8121005434050937`*^9}, {
+  3.8121006420595393`*^9, 3.8121006475008163`*^9}, {3.812100701479679*^9, 
+  3.8121007045717783`*^9}, {3.812100747181609*^9, 3.81210080356402*^9}, {
+  3.812100842938427*^9, 3.8121008779701753`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The test homogenous transformation matrix is \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0.7078503288608893`", "0.7063624508221901`", "0", 
+        "1.2820591872276736`"},
+       {
+        RowBox[{"-", "0.08053065841969043`"}], "0.08070028776219748`", 
+        "0.9934798823376293`", "4.320283796068501`"},
+       {"0.7017568845305489`", 
+        RowBox[{"-", "0.7032350614293685`"}], "0.11400755847929706`", 
+        "0.49577753539255875`"},
+       {"0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm["The test homogenous transformation matrix is ", 
+   MatrixForm[{{
+     0.7078503288608893, 0.7063624508221901, 0, 
+      1.2820591872276736`}, {-0.08053065841969043, 0.08070028776219748, 
+     0.9934798823376293, 4.320283796068501}, {
+     0.7017568845305489, -0.7032350614293685, 0.11400755847929706`, 
+     0.49577753539255875`}, {0, 0, 0, 1}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8120994205830355`*^9, 3.812099487349308*^9, 3.812099730605945*^9, {
+   3.8120998010840535`*^9, 3.8120998279169755`*^9}, 3.812099873811885*^9, 
+   3.8121001106548967`*^9, 3.8121003365172453`*^9, 3.8121005463197584`*^9, 
+   3.812100650389255*^9, 3.8121007092258234`*^9, 3.8121008086399527`*^9, {
+   3.8121008521143675`*^9, 3.8121008788709445`*^9}, 3.81210468593293*^9, 
+   3.8121048811331897`*^9, 3.8121049644515314`*^9, 3.8121058596333275`*^9, 
+   3.812105892745288*^9, 3.812106024277706*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The inverse of the test homogenous transformation matrix \
+obtained is \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0.7078503288608893`", 
+        RowBox[{"-", "0.08053065841969043`"}], "0.7017568845305489`", 
+        RowBox[{"-", "0.9075060172982332`"}]},
+       {"0.7063624508221901`", "0.08070028776219748`", 
+        RowBox[{"-", "0.7032350614293685`"}], 
+        RowBox[{"-", "0.9055984695892444`"}]},
+       {"0", "0.9934798823376293`", "0.11400755847929706`", 
+        RowBox[{"-", "4.348637423742289`"}]},
+       {"0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "The inverse of the test homogenous transformation matrix obtained is ", 
+   MatrixForm[{{0.7078503288608893, -0.08053065841969043, 
+     0.7017568845305489, -0.9075060172982332}, {0.7063624508221901, 
+     0.08070028776219748, -0.7032350614293685, -0.9055984695892444}, {
+     0, 0.9934798823376293, 0.11400755847929706`, -4.348637423742289}, {0, 0, 
+     0, 1}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8120994205830355`*^9, 3.812099487349308*^9, 3.812099730605945*^9, {
+   3.8120998010840535`*^9, 3.8120998279169755`*^9}, 3.812099873811885*^9, 
+   3.8121001106548967`*^9, 3.8121003365172453`*^9, 3.8121005463197584`*^9, 
+   3.812100650389255*^9, 3.8121007092258234`*^9, 3.8121008086399527`*^9, {
+   3.8121008521143675`*^9, 3.8121008788709445`*^9}, 3.81210468593293*^9, 
+   3.8121048811331897`*^9, 3.8121049644515314`*^9, 3.8121058596333275`*^9, 
+   3.812105892745288*^9, 3.8121060242827044`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The multiplication between the inverse of the test homogenous \
+matrix and the test homogenous matrix obtained using multiplyHomTrans and \
+invertHomTrans functions yields \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1.`", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1.`", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1.0000000000000002`", ",", "0"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "The multiplication between the inverse of the test homogenous matrix and \
+the test homogenous matrix obtained using multiplyHomTrans and invertHomTrans \
+functions yields ", {{1., 0, 0, 0}, {0, 1., 0, 0}, {
+    0, 0, 1.0000000000000002`, 0}, {0, 0, 0, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8120994205830355`*^9, 3.812099487349308*^9, 3.812099730605945*^9, {
+   3.8120998010840535`*^9, 3.8120998279169755`*^9}, 3.812099873811885*^9, 
+   3.8121001106548967`*^9, 3.8121003365172453`*^9, 3.8121005463197584`*^9, 
+   3.812100650389255*^9, 3.8121007092258234`*^9, 3.8121008086399527`*^9, {
+   3.8121008521143675`*^9, 3.8121008788709445`*^9}, 3.81210468593293*^9, 
+   3.8121048811331897`*^9, 3.8121049644515314`*^9, 3.8121058596333275`*^9, 
+   3.812105892745288*^9, 3.812106024290704*^9}],
+
+Cell[BoxData["\<\"This is a 4*4 Identity Matrix. Hence both the functions are \
+working ideally.\"\>"], "Print",
+ CellChangeTimes->{
+  3.8120994205830355`*^9, 3.812099487349308*^9, 3.812099730605945*^9, {
+   3.8120998010840535`*^9, 3.8120998279169755`*^9}, 3.812099873811885*^9, 
+   3.8121001106548967`*^9, 3.8121003365172453`*^9, 3.8121005463197584`*^9, 
+   3.812100650389255*^9, 3.8121007092258234`*^9, 3.8121008086399527`*^9, {
+   3.8121008521143675`*^9, 3.8121008788709445`*^9}, 3.81210468593293*^9, 
+   3.8121048811331897`*^9, 3.8121049644515314`*^9, 3.8121058596333275`*^9, 
+   3.812105892745288*^9, 3.8121060242957077`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+(e) Defining a function to obtain the homogenous transformation matrix from a \
+DH-parameter table:\
+\>", "Subsection",
+ CellChangeTimes->{{3.812101349050576*^9, 3.812101378837993*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DHTable2HomTrans", "[", "dhTable_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"temp", ",", "length", ",", "T"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Checking", " ", "the", " ", "dimensions", " ", "of", " ", "the", " ", 
+       "given", " ", "DH"}], "-", 
+      RowBox[{"parameter", " ", "Table"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Dimensions", "[", "dhTable", "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}], "==", "4"}], ")"}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "Print", "[", 
+         "\"\<Error: Please ensure the DH-parameter table has 4 parameters \
+exactly\>\"", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Computing", " ", "the", " ", "transformation", " ", "matrix"}],
+       "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"T", " ", "=", " ", 
+      RowBox[{"IdentityMatrix", "[", "4", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"length", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"Dimensions", "[", "dhTable", "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "<", 
+        RowBox[{"length", "+", "1"}]}], ",", 
+       RowBox[{"i", "++"}], ",", 
+       RowBox[{"T", "=", 
+        RowBox[{"multiplyHomTrans", "[", 
+         RowBox[{"T", ",", 
+          RowBox[{"DH2HomTrans", "[", 
+           RowBox[{"dhTable", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", "T", "]"}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.81210139282408*^9, 3.8121016183492594`*^9}, {
+  3.812101676699444*^9, 3.812101707802209*^9}, {3.8121017543049054`*^9, 
+  3.812101842228797*^9}, {3.812102059977381*^9, 3.8121021041259747`*^9}, {
+  3.8121021422154903`*^9, 3.812102193659823*^9}, {3.812102234459638*^9, 
+  3.8121022561139393`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Testing DHTable2HomTrans:", "Subsection",
+ CellChangeTimes->{{3.8121024118119373`*^9, 3.812102438317927*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testDHTable", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}], "]"}], ",", 
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", "*", "\[Pi]"}]}], "}"}], "]"}]}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<The homogenous transformation matrix obtained for test DH-parameter \
+table \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", "\[Alpha]", ",", "d", ",", "\[Theta]"}], "}"}], 
+        "}"}], ",", "testDHTable"}], "]"}], "]"}], ",", "\"\< is \>\"", ",", 
+    " ", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"DHTable2HomTrans", "[", "testDHTable", "]"}], "]"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.812101712513234*^9, 3.8121017438407717`*^9}, {
+  3.8121023217180667`*^9, 3.812102363715032*^9}, {3.812102449450756*^9, 
+  3.812102670406335*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"The homogenous transformation matrix obtained for test \
+DH-parameter table \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"a", "\[Alpha]", "d", "\[Theta]"},
+       {"0.23656052639717817`", "5.590235630719652`", "1.6480822930269765`", 
+        "2.130808537025125`"},
+       {"3.3826747242598785`", "5.117945160730152`", "4.731308538446857`", 
+        "1.8000699457777767`"},
+       {"1.978465559916959`", "1.8882574200104472`", "3.2160609869341865`", 
+        "3.370806309421223`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "\[InvisibleSpace]", "\<\" is \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0.4095643926505146`", "0.8540918623018223`", 
+        RowBox[{"-", "0.3205995929857368`"}], 
+        RowBox[{"-", "6.679977505343224`"}]},
+       {"0.847559395025267`", 
+        RowBox[{"-", "0.22623012034613618`"}], "0.48006562525614777`", 
+        "2.482665382804433`"},
+       {"0.3374908593980266`", 
+        RowBox[{"-", "0.46834498331676144`"}], 
+        RowBox[{"-", "0.8165493839473543`"}], 
+        RowBox[{"-", "1.1382996635412725`"}]},
+       {"0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}],
+  SequenceForm[
+  "The homogenous transformation matrix obtained for test DH-parameter table \
+", 
+   MatrixForm[{{$CellContext`a, $CellContext`\[Alpha], $CellContext`d, \
+$CellContext`\[Theta]}, {0.23656052639717817`, 5.590235630719652, 
+     1.6480822930269765`, 2.130808537025125}, {3.3826747242598785`, 
+     5.117945160730152, 4.731308538446857, 1.8000699457777767`}, {
+     1.978465559916959, 1.8882574200104472`, 3.2160609869341865`, 
+     3.370806309421223}}], " is ", 
+   MatrixForm[{{0.4095643926505146, 
+     0.8540918623018223, -0.3205995929857368, -6.679977505343224}, {
+     0.847559395025267, -0.22623012034613618`, 0.48006562525614777`, 
+     2.482665382804433}, {
+     0.3374908593980266, -0.46834498331676144`, -0.8165493839473543, \
+-1.1382996635412725`}, {0, 0, 0, 1}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.812102578580879*^9, {3.8121026585921726`*^9, 3.8121026710328426`*^9}, 
+   3.81210468600793*^9, 3.8121048812023506`*^9, 3.812104964570518*^9, 
+   3.812105859690333*^9, 3.812105892802322*^9, 3.812106024345711*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1520, 805},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 73, 1, 30, "Input"],
+Cell[634, 23, 123, 3, 30, "Input"],
+Cell[760, 28, 81, 2, 30, "Input"],
+Cell[CellGroupData[{
+Cell[866, 34, 177, 2, 49, "Subsection"],
+Cell[1046, 38, 1039, 23, 69, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2122, 66, 196, 4, 49, "Subsection"],
+Cell[2321, 72, 2211, 54, 88, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4569, 131, 123, 1, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[4717, 136, 1138, 32, 69, "Input"],
+Cell[5858, 170, 2079, 46, 65, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7986, 222, 211, 4, 49, "Subsection"],
+Cell[8200, 228, 5489, 143, 297, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13726, 376, 218, 4, 49, "Subsection"],
+Cell[13947, 382, 4231, 109, 259, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18215, 496, 205, 3, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[18445, 503, 2753, 67, 164, "Input"],
+Cell[CellGroupData[{
+Cell[21223, 574, 1988, 43, 65, "Print"],
+Cell[23214, 619, 2076, 43, 65, "Print"],
+Cell[25293, 664, 1468, 29, 41, "Print"],
+Cell[26764, 695, 630, 9, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27455, 711, 195, 4, 49, "Subsection"],
+Cell[27653, 717, 2255, 56, 183, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29945, 778, 115, 1, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[30085, 783, 2527, 72, 69, "Input"],
+Cell[32615, 857, 3243, 72, 65, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
